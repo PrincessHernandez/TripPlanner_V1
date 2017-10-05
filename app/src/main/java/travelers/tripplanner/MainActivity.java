@@ -1,5 +1,6 @@
 package travelers.tripplanner;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import travelers.tripplanner.fragments.Dashboard;
+import travelers.tripplanner.fragments.Maps;
+import travelers.tripplanner.fragments.Settings;
+import travelers.tripplanner.fragments.history;
+import travelers.tripplanner.fragments.MyLocation;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,6 +35,9 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().replace(R.id.content_frame, new Dashboard()).commit();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -71,18 +81,20 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        FragmentManager fm = getFragmentManager();
+
         if (id == R.id.nav_dashboard) {
-            // Handle the camera action
+            fm.beginTransaction().replace(R.id.content_frame, new Dashboard()).commit();
         } else if (id == R.id.nav_maps) {
-
+            int commit = fm.beginTransaction().replace(R.id.content_frame, new Maps()).commit();
         } else if (id == R.id.nav_history) {
-
+            fm.beginTransaction().replace(R.id.content_frame, new history()).commit();
         } else if (id == R.id.nav_my_location) {
-
+            fm.beginTransaction().replace(R.id.content_frame, new MyLocation()).commit();
         } else if (id == R.id.nav_settings) {
-
+            //fm.beginTransaction().replace(R.id.content_frame, new Settings()).commit();
         } else if (id == R.id.nav_logout) {
-
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
