@@ -1,9 +1,12 @@
 package travelers.tripplanner;
 
+import android.Manifest;
 import android.app.FragmentManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -22,7 +25,7 @@ import travelers.tripplanner.fragments.MyLocation;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    public static double latitude, longitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,11 +36,18 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        FragmentManager fm = getFragmentManager();
-        fm.beginTransaction().replace(R.id.content_frame, new Dashboard()).commit();
+        //GPS functionality
+        ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},123);
+        final GPStracker g = new GPStracker(getApplicationContext());
+        Location l = g.getLocation();
+
+        if(l!=null){
+            latitude = l.getLatitude();
+            longitude = l.getLongitude();
+        }
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -86,13 +96,13 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_dashboard) {
             fm.beginTransaction().replace(R.id.content_frame, new Dashboard()).commit();
         } else if (id == R.id.nav_maps) {
-            int commit = fm.beginTransaction().replace(R.id.content_frame, new Maps()).commit();
+            fm.beginTransaction().replace(R.id.content_frame, new Maps()).commit();
         } else if (id == R.id.nav_history) {
             fm.beginTransaction().replace(R.id.content_frame, new history()).commit();
         } else if (id == R.id.nav_my_location) {
             fm.beginTransaction().replace(R.id.content_frame, new MyLocation()).commit();
         } else if (id == R.id.nav_settings) {
-            //fm.beginTransaction().replace(R.id.content_frame, new Settings()).commit();
+            fm.beginTransaction().replace(R.id.content_frame, new Settings()).commit();
         } else if (id == R.id.nav_logout) {
             finish();
         }
