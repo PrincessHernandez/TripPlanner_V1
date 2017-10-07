@@ -1,4 +1,4 @@
-package travelers.tripplanner;
+package travelers.tripplanner.fragments;
 
 import android.Manifest;
 import android.content.Context;
@@ -6,24 +6,37 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import travelers.tripplanner.fragments.MyLocation;
 
-class GPStracker {
+public class GPStracker {
     private static final String TAG = "GPStracker_Message";
     Context context;
     TextView LatText,LngText,Address;
+    private RequestQueue requestQueue;
+    double lat, lng;
 
     public GPStracker(Context c){
         context = c;
+        requestQueue = Volley.newRequestQueue(c);
     }
 
     public Location getLocation(){
@@ -38,12 +51,14 @@ class GPStracker {
 
                 @Override
                 public void onLocationChanged(Location location) {
-                    double lat = round(location.getLatitude(),5);
-                    double lng = round(location.getLongitude(),5);
+                    lat = round(location.getLatitude(),5);
+                    lng = round(location.getLongitude(),5);
+                    Address = MyLocation.Address;
                     LatText = MyLocation.LatText;
                     LngText = MyLocation.LngText;
                     LatText.setText("Latitude: " + lat);
                     LngText.setText("Longitude: " + lng);
+                    startReverseGeocoding();
                 }
 
                 @Override
@@ -77,4 +92,38 @@ class GPStracker {
         bd = bd.setScale(places, RoundingMode.HALF_UP);
         return bd.doubleValue();
     }
+
+    private void startReverseGeocoding() {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                JsonObjectRequest request = new JsonObjectRequest("https://maps.googleapis.com/maps/api/geocode/json?" +
+                        "latlng="+lat+","+lng,
+                        new Response.Listener<JSONObject>(){
+
+                            @Override
+                            public void onResponse(JSONObject response) {
+
+                                String location = null;
+                                try {
+                                    location = response.getJSONArray("results").getJSONObject(0).getString("formatted_address");
+                                    Address.setText(location);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            }
+                        }, new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+                requestQueue.add(request);
+
+            }
+        });
+    }
+
 }

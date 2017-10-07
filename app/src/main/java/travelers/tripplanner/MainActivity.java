@@ -4,10 +4,7 @@ import android.Manifest;
 import android.app.FragmentManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import travelers.tripplanner.fragments.Dashboard;
+import travelers.tripplanner.fragments.GPStracker;
 import travelers.tripplanner.fragments.Maps;
 import travelers.tripplanner.fragments.Settings;
 import travelers.tripplanner.fragments.history;
