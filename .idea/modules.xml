@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TripPlannerApp/TripPlannerApp.iml" filepath="$PROJECT_DIR$/TripPlannerApp/TripPlannerApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/TripPlanner_V1.iml" filepath="$PROJECT_DIR$/TripPlanner_V1.iml" />
+      <module fileurl="file://C:\Users\n01148757\Desktop\TripPlanner_V1\TripPlanner_V1.iml" filepath="C:\Users\n01148757\Desktop\TripPlanner_V1\TripPlanner_V1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\n01148757\Desktop\TripPlanner_V1\app\app.iml" filepath="C:\Users\n01148757\Desktop\TripPlanner_V1\app\app.iml" />
     </modules>
   </component>
 </project>
