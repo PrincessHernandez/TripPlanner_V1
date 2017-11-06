@@ -49,7 +49,8 @@
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
                 android:hint="Email Address"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:inputType="textEmailAddress"/>
 
             <EditText
                 android:id="@+id/ET2"
@@ -57,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ET1"
                 android:hint="Password"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:inputType="textPassword"/>
 
             <EditText
                 android:id="@+id/ET3"
@@ -65,7 +67,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ET2"
                 android:hint="Confirm Password"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:inputType="textPassword"/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
@@ -87,4 +90,5 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btn"
         android:clickable="true"/>
+
 </RelativeLayout>

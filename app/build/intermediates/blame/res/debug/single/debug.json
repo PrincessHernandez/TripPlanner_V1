@@ -60,12 +60,12 @@
         "source": "C:\\Users\\n01148757\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ee6eb3a8da5455c63d0d5b8a542711b3\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
-        "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_design_tint_password_toggle.xml.flat",
-        "source": "C:\\Users\\n01148757\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\678266ad0df17e37d601c75fd3d721ef\\res\\color-v23\\design_tint_password_toggle.xml"
-    },
-    {
         "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_abc_btn_colored_text_material.xml.flat",
         "source": "C:\\Users\\n01148757\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ee6eb3a8da5455c63d0d5b8a542711b3\\res\\color-v23\\abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\color-v23_design_tint_password_toggle.xml.flat",
+        "source": "C:\\Users\\n01148757\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\678266ad0df17e37d601c75fd3d721ef\\res\\color-v23\\design_tint_password_toggle.xml"
     },
     {
         "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tooltip_frame_dark.xml.flat",
@@ -86,6 +86,10 @@
     {
         "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_out_righ.xml.flat",
+        "source": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\src\\main\\res\\anim\\slide_out_righ.xml"
     },
     {
         "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_bottom_sheet_dialog.xml.flat",
@@ -876,6 +880,10 @@
         "source": "C:\\Users\\n01148757\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ee6eb3a8da5455c63d0d5b8a542711b3\\res\\drawable-xxhdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
+        "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_in_left.xml.flat",
+        "source": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\src\\main\\res\\anim\\slide_in_left.xml"
+    },
+    {
         "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "C:\\Users\\n01148757\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ee6eb3a8da5455c63d0d5b8a542711b3\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
@@ -1490,6 +1498,10 @@
     {
         "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "C:\\Users\\n01148757\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ee6eb3a8da5455c63d0d5b8a542711b3\\res\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_out_left.xml.flat",
+        "source": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\src\\main\\res\\anim\\slide_out_left.xml"
     },
     {
         "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_time.png.flat",
@@ -2422,6 +2434,10 @@
     {
         "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_plus_signin_btn_icon_dark_disabled.9.png.flat",
         "source": "C:\\Users\\n01148757\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-9.0.0.aar\\dd8f42905573e11154b0fc9372996917\\res\\drawable-xxhdpi-v4\\common_plus_signin_btn_icon_dark_disabled.9.png"
+    },
+    {
+        "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\anim_slide_in_right.xml.flat",
+        "source": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\src\\main\\res\\anim\\slide_in_right.xml"
     },
     {
         "merged": "C:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_list_focused_holo.9.png.flat",

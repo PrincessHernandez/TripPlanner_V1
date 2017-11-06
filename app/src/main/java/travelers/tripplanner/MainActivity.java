@@ -21,6 +21,7 @@ import travelers.tripplanner.fragments.Maps;
 import travelers.tripplanner.fragments.Settings;
 import travelers.tripplanner.fragments.history;
 import travelers.tripplanner.fragments.MyLocation;
+import travelers.tripplanner.register.signIn;
 import travelers.tripplanner.register.signUp;
 
 public class MainActivity extends AppCompatActivity
@@ -112,7 +113,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
