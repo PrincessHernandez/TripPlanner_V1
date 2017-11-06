@@ -56,7 +56,7 @@ public class GPStracker {
                     Address = MyLocation.Address;
                     LatText = MyLocation.LatText;
                     LngText = MyLocation.LngText;
-                    if(!(Address == null || LatText == null || LngText == null)){
+                    if(!(Address == null||LatText == null||LngText == null)){
                         LatText.setText("Latitude: " + lat);
                         LngText.setText("Longitude: " + lng);
                         startReverseGeocoding();

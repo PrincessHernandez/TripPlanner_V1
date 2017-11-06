@@ -2,6 +2,7 @@ package travelers.tripplanner;
 
 import android.Manifest;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -20,6 +21,7 @@ import travelers.tripplanner.fragments.Maps;
 import travelers.tripplanner.fragments.Settings;
 import travelers.tripplanner.fragments.history;
 import travelers.tripplanner.fragments.MyLocation;
+import travelers.tripplanner.register.signUp;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -106,7 +108,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             fm.beginTransaction().replace(R.id.content_frame, new Settings()).commit();
         } else if (id == R.id.nav_logout) {
-            finish();
+            Intent i = new Intent(MainActivity.this, signUp.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
