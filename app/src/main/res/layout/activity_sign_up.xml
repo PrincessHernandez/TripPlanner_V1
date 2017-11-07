@@ -45,12 +45,21 @@
             android:padding="10dp">
 
             <EditText
+                android:id="@+id/ET0"
+                android:layout_width="250sp"
+                android:layout_height="wrap_content"
+                android:hint="Your Name"
+                android:textSize="15sp"
+                android:inputType="textEmailAddress"/>
+
+            <EditText
                 android:id="@+id/ET1"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
                 android:hint="Email Address"
                 android:textSize="15sp"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress"
+                android:layout_below="@+id/ET0"/>
 
             <EditText
                 android:id="@+id/ET2"

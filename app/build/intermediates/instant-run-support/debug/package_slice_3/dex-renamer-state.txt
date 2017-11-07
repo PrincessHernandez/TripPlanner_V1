@@ -1,4 +1,4 @@
-#Sat Nov 04 17:58:50 EDT 2017
-base.0=C\:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\22
+#Tue Nov 07 17:10:29 GMT-05:00 2017
+base.0=C\:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\3
 renamed.0=classes.dex
-file.0=C\:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\22\\classes.dex
+file.0=C\:\\Users\\n01148757\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\3\\classes.dex

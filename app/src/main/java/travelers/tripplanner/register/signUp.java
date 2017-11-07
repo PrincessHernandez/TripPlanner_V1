@@ -18,19 +18,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import travelers.tripplanner.MainActivity;
 import travelers.tripplanner.R;
 
 public class signUp extends AppCompatActivity implements View.OnClickListener {
-    private TextView mTextView;
-    private Button mButton;
-    private EditText username, password, confirmPassword;
+    private EditText email, password, confirmPassword, name;
     private FirebaseAuth mFirebaseAuth;
     private ProgressDialog dialog;
-    private AlertDialog.Builder a_builder;
-    private AlertDialog alert;
-
+    private Button mButton;
+    private TextView mTextView;
+    private DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference mUserIdRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,14 +39,24 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
+        if(mFirebaseAuth.getCurrentUser() != null){
+            finish();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        }
+
         dialog = new ProgressDialog(this);
 
         mButton = findViewById(R.id.btn);
         mTextView = findViewById(R.id.tv);
-        username =  findViewById(R.id.ET1);
+        name =  findViewById(R.id.ET0);
+        email =  findViewById(R.id.ET1);
         password =  findViewById(R.id.ET2);
         confirmPassword =  findViewById(R.id.ET3);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
         mButton.setOnClickListener(this);
         mTextView.setOnClickListener(this);
     }
@@ -56,8 +67,18 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
 
         switch (id){
             case R.id.btn:
+
                 if(!checkEmpty()){
                     if(valid()){
+                        if(!validEmail()){
+                            AlertBox("Invalid Email!", "You entered an invalid email address", view);
+                            break;
+                        }
+
+                        if(!validPassword()){
+                            AlertBox("Invalid Password!", "Password must contain atleast 6 characters", view);
+                            break;
+                        }
                         SignUp();
                     } else{
                         AlertBox("Wrong Password", "Password did not match, try again!", view);
@@ -74,27 +95,33 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
+    private boolean validPassword() {
+        return 6<=password.getText().toString().length();
+    }
+
     private void SignUp() {
         dialog = ProgressDialog.show(this, "Please wait!", "Registering user...");
-        mFirebaseAuth.createUserWithEmailAndPassword(username.getText().toString().trim(), password.getText().toString().trim())
+        mFirebaseAuth.createUserWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(signUp.this, "User created", Toast.LENGTH_SHORT).show();
+                            mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
+                            DatabaseReference mUserNameRef = mUserIdRef.child("Name");
+                            mUserNameRef.setValue(name.getText().toString());
                             Intent i = new Intent(signUp.this, MainActivity.class);
+                            finish();
                             startActivity(i);
-                            dialog.dismiss();
                         }else{
-                            Toast.makeText(signUp.this, "fuck off!", Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
+                            Toast.makeText(signUp.this, "Could not make the user!", Toast.LENGTH_SHORT).show();
                         }
+                        dialog.dismiss();
                     }
                 });
     }
 
     private void AlertBox(String title, String msg, View view){
-        a_builder = new AlertDialog.Builder(view.getContext());
+        AlertDialog.Builder a_builder = new AlertDialog.Builder(view.getContext());
         a_builder.setMessage(msg)
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -102,13 +129,14 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
                     public void onClick(DialogInterface dialog, int which) {
                     }
                 });
-        alert = a_builder.create();
+        AlertDialog alert = a_builder.create();
         alert.setTitle(title);
         alert.show();
     }
 
     private boolean checkEmpty() {
-        if(username.getText().toString().equals("")) return true;
+        if(name.getText().toString().equals("")) return true;
+        if(email.getText().toString().equals("")) return true;
         if(password.getText().toString().equals("")) return true;
         if(confirmPassword.getText().toString().equals("")) return true;
         return false;
@@ -117,4 +145,14 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
     private boolean valid() {
         return password.getText().toString().equals(confirmPassword.getText().toString());
     }
+
+    private boolean validEmail(){
+        CharSequence target = email.getText();
+        if (target == null) {
+            return false;
+        } else {
+            return android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
+        }
+    }
+
 }

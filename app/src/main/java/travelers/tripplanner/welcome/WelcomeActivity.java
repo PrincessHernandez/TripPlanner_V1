@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import travelers.tripplanner.MainActivity;
 import travelers.tripplanner.R;
+import travelers.tripplanner.register.signUp;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -38,7 +39,7 @@ public class WelcomeActivity extends AppCompatActivity {
         // Checking for first time launch - before calling setContentView()
         prefManager = new PrefManager(this);
         if (!prefManager.isFirstTimeLaunch()) {
-            launchHomeScreen();
+            launchSignUp();
             finish();
         }
 
@@ -76,7 +77,7 @@ public class WelcomeActivity extends AppCompatActivity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launchHomeScreen();
+                launchSignUp();
             }
         });
 
@@ -90,7 +91,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
-                    launchHomeScreen();
+                    launchSignUp();
                 }
             }
         });
@@ -119,9 +120,9 @@ public class WelcomeActivity extends AppCompatActivity {
         return viewPager.getCurrentItem() + i;
     }
 
-    private void launchHomeScreen() {
+    private void launchSignUp() {
         prefManager.setFirstTimeLaunch(false);
-        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, signUp.class));
         finish();
     }
 
