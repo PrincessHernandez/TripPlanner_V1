@@ -3,6 +3,7 @@ package travelers.tripplanner;
 import android.Manifest;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -25,7 +26,6 @@ import travelers.tripplanner.fragments.Maps;
 import travelers.tripplanner.fragments.Settings;
 import travelers.tripplanner.fragments.history;
 import travelers.tripplanner.fragments.MyLocation;
-import travelers.tripplanner.register.signIn;
 import travelers.tripplanner.register.signUp;
 
 public class MainActivity extends AppCompatActivity
@@ -58,13 +58,6 @@ public class MainActivity extends AppCompatActivity
 
         //GPS functionality
         ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},123);
-        final GPStracker g = new GPStracker(getApplicationContext());
-        Location l = g.getLocation();
-
-        if(l!=null){
-            latitude = l.getLatitude();
-            longitude = l.getLongitude();
-        }
 
         NavigationView navigationView =  findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -126,5 +119,28 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+
+        switch (requestCode) {
+            case 123:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this,"GPS permission granted",Toast.LENGTH_LONG).show();
+
+                    final GPStracker g = new GPStracker(getApplicationContext());
+                    Location l = g.getLocation();
+
+                    if(l!=null){
+                        latitude = l.getLatitude();
+                        longitude = l.getLongitude();
+                    }
+
+                } else {
+                    Toast.makeText(this,"GPS not permission granted",Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
     }
 }

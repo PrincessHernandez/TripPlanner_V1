@@ -6,24 +6,19 @@
     android:layout_height="match_parent"
     tools:context="travelers.tripplanner.register.signUp">
 
-    <ImageView
-        android:id="@+id/TVright"
-        android:layout_width="150dp"
+    <View
+        android:id="@+id/rightSignupView"
+        android:layout_width="70dp"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_signup_right"
-        android:scaleType="fitXY"
         android:layout_alignParentEnd="true"
-        android:adjustViewBounds="true" />
+        android:background="@color/colorPrimary"/>
 
-    <ImageView
-        android:id="@+id/TVleft"
-        android:layout_width="90dp"
-        android:layout_height="150dp"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_sinup_left"
-        android:scaleType="fitXY"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_toStartOf="@id/rightSignupView"
+        android:layout_marginEnd="2dp"
+        android:background="@color/colorPrimary"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -31,7 +26,7 @@
         android:src="@drawable/ic_account_circle"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/cardView"
-        android:paddingBottom="10dp"/>
+        android:layout_marginBottom="10dp"/>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
@@ -48,7 +43,7 @@
                 android:id="@+id/ET0"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
-                android:hint="Your Name"
+                android:hint="@string/your_name"
                 android:textSize="15sp"
                 android:inputType="textEmailAddress"/>
 
@@ -56,7 +51,7 @@
                 android:id="@+id/ET1"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
-                android:hint="Email Address"
+                android:hint="@string/email_address"
                 android:textSize="15sp"
                 android:inputType="textEmailAddress"
                 android:layout_below="@+id/ET0"/>
@@ -66,7 +61,7 @@
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ET1"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:textSize="15sp"
                 android:inputType="textPassword"/>
 
@@ -75,7 +70,7 @@
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ET2"
-                android:hint="Confirm Password"
+                android:hint="@string/confirm_password"
                 android:textSize="15sp"
                 android:inputType="textPassword"/>
         </RelativeLayout>
@@ -86,7 +81,7 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign up"
+        android:text="@string/sign_up"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/cardView"
         android:layout_marginTop="10dp"/>
@@ -95,7 +90,7 @@
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already registered? Click here to login"
+        android:text="@string/already_registered_click_here_to_login"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btn"
         android:clickable="true"/>

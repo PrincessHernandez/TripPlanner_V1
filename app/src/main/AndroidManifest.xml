@@ -25,7 +25,10 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".register.signUp" />
-        <activity android:name=".register.signIn"></activity>
+        <activity android:name=".register.signIn" />
+        <activity
+            android:configChanges="orientation|screenSize"
+            android:name=".addTrip.MainActivity"/>
     </application>
 
 </manifest>

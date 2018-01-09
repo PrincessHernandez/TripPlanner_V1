@@ -6,24 +6,32 @@
     android:layout_height="match_parent"
     tools:context="travelers.tripplanner.register.signIn">
 
-    <ImageView
-        android:id="@+id/TVleft"
-        android:layout_width="150dp"
+    <View
+        android:id="@+id/leftSignUpView"
+        android:layout_width="30dp"
         android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_signin_left"
-        android:scaleType="fitXY"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
+        android:background="@color/colorPrimary"/>
 
-    <ImageView
-        android:id="@+id/TVright"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_signin_right"
-        android:scaleType="fitXY"
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@+id/leftSignUpView"
+        android:layout_marginStart="2dp"
+        android:background="@color/colorPrimary"/>
+
+    <View
+        android:id="@+id/rightSignupView"
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-        android:adjustViewBounds="true" />
+        android:background="@color/colorAccent"/>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_toStartOf="@id/rightSignupView"
+        android:layout_marginEnd="2dp"
+        android:background="@color/colorAccent"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -48,7 +56,7 @@
                 android:id="@+id/ET1"
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
-                android:hint="Email Address"
+                android:hint="@string/email_address"
                 android:textSize="15sp"/>
 
             <EditText
@@ -56,7 +64,7 @@
                 android:layout_width="250sp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/ET1"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:textSize="15sp"/>
         </RelativeLayout>
 
@@ -66,7 +74,7 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign in"
+        android:text="@string/sign_in"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/cardView"
         android:layout_marginTop="10dp"/>
@@ -75,7 +83,7 @@
         android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Not registered yet? Click here to sign up"
+        android:text="@string/not_registered_yet_click_here_to_sign_up"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btn"
         android:clickable="true"/>

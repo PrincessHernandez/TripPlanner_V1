@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:text="Address"
+            android:text="@string/address"
             android:textSize="20sp" />
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:layout_below="@+id/Address"
-            android:text="Latitude: 0.00"
+            android:text="@string/latitude"
             android:textSize="18sp" />
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:layout_below="@+id/Lat"
-            android:text="Longitude: 0.00"
+            android:text="@string/longitude"
             android:textSize="18sp" />
 
         </RelativeLayout>

@@ -60,6 +60,7 @@ public class signIn extends AppCompatActivity implements View.OnClickListener{
             case R.id.tv:
                 Intent i = new Intent(signIn.this, signUp.class);
                 startActivity(i);
+                finish();
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
                 break;
         }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trippie</string>
+    <string name="title_activity_welcome">Écran daccueil</string>
+    <string name="next">PROCHAIN</string>
+    <string name="skip">SAUTER</string>
+    <string name="start">Commencer</string>
+
+    <string name="slide_1_title">Bonjour voyageur!</string>
+    <string name="slide_1_desc">Votre guide de voyage personnel!</string>
+
+    <string name="slide_2_title">Voyage nimporte où</string>
+    <string name="slide_2_desc">Parcourez le monde, mais gardez trace de votre voyage!</string>
+
+    <string name="slide_3_title">Se détendre!</string>
+    <string name="slide_3_desc">Nous vous rappellerons où visiter!</string>
+
+    <string name="slide_4_title">Excité?</string>
+    <string name="slide_4_desc">Commençons!</string>
+
+    <string name="play_again_desc">Pour voir à nouveau le curseur de bienvenue, allez dans Paramètres -> apps -> curseur de bienvenue -> effacer les données</string>
+    <string name="play_again">Rejouer</string>
+    <string name="action_settings">Paramètres</string>
+
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+    <string name="email_address">Adresse e-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="sign_in">se connecter</string>
+    <string name="not_registered_yet_click_here_to_sign_up">Pas encore inscrit? Cliquez ici pour vous inscrire</string>
+    <string name="your_name">votre nom</string>
+    <string name="confirm_password">Confirmez le mot de passe</string>
+    <string name="sign_up">Sinscrire</string>
+    <string name="already_registered_click_here_to_login">Déjà enregistré? Cliquez ici pour vous identifier</string>
+    <string name="address">Adresse</string>
+    <string name="latitude">Latitude: 0.00</string>
+    <string name="longitude">Longitude: 0.00</string>
+    <string name="name">prénom</string>
+    <string name="type">type</string>
+</resources>
