@@ -1,26 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\n01109108\\Documents\\trippie-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v22\\values-v22.xml",
+            "outputFile": "C:\\Users\\n01139945\\Desktop\\TripPlanner_V1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v22\\values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\n01109108\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\c29bd719c4c304edc83e59751c936de4\\res\\values-v22\\values-v22.xml",
-                    "from": {
-                        "startLines": "2,3,4,9",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,130,217,553",
-                        "endLines": "2,3,8,13",
-                        "endColumns": "74,86,12,12",
-                        "endOffsets": "125,212,548,896"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "Z:\\Android\\GitHub\\trippie-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v22\\values-v22.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\Rav\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\71ddc231b631eeca9693f5b90752968e\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\n01139945\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\dc632d36a38645b45b19e3ba0ae5a269\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",
