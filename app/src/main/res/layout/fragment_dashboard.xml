@@ -21,8 +21,8 @@
         android:layout_centerInParent="true"
         android:text="Bucket list empty!"/>
 
-    <GridView
-        android:id="@+id/GV"
+    <ListView
+        android:id="@+id/trips_lv_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

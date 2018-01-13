@@ -1,10 +1,7 @@
 package travelers.tripplanner.addTrip;
 
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -33,21 +31,19 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import travelers.tripplanner.R;
-import travelers.tripplanner.sqliteUtils.DBhelper;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ListView list;
-    private ArrayList<String> name, type, address, imageURl, place_id;
-    private ArrayList<Integer> save2BucketList;
+    private ArrayList<String> name, type, address, imageURl, place_id, bucklist_place_id;
     private ArrayList<Double> rating;
     private EditText mEditText;
     protected locationsAdapter adapter;
     protected AlertDialog.Builder a_builder;
+    private RelativeLayout searchRL;
     protected AlertDialog alert;
     private RequestQueue requestQueue;
     private ProgressBar mProgressBar;
-    private int selectedRow;
     private FloatingActionButton check;
     private DatabaseReference mRootRef;
     private FirebaseAuth mFirebaseAuth;
@@ -70,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageURl = new ArrayList<>();
         rating = new ArrayList<>();
         place_id = new ArrayList<>();
-        save2BucketList = new ArrayList<>();
+        bucklist_place_id = new ArrayList<>();
 
         adapter = new locationsAdapter(MainActivity.this, name, type, address, imageURl, rating, place_id);
         list =  findViewById(R.id.lv);
@@ -81,9 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFirebaseAuth = FirebaseAuth.getInstance();
         mRootRef = FirebaseDatabase.getInstance().getReference();
     }
-    //
-    //
-    //
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -91,17 +85,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                MainActivity.this.selectedRow = i;
-                DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
-                DatabaseReference mBucketListRef = mUserIdRef.child("BucketList");
-                DatabaseReference mVisitRef = mBucketListRef.child(mEditText.getText().toString());
-                DatabaseReference selection = mVisitRef.child("place" + ListLength);
-                ListLength++;
-                selection.setValue(place_id.get(i));
+//                DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
+//                DatabaseReference mBucketListRef = mUserIdRef.child("BucketList");
+//                DatabaseReference mVisitRef = mBucketListRef.child(mEditText.getText().toString());
+//                DatabaseReference selection = mVisitRef.child("place" + ListLength);
+//                ListLength++;
+//                selection.setValue(place_id.get(i));
                 Toast.makeText(MainActivity.this, name.get(i) + " added to bucketlist!", Toast.LENGTH_SHORT).show();
+                bucklist_place_id.add(place_id.get(i));
             }
         });
+
+
     }
 
     @Override
@@ -109,58 +104,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view.getId() == R.id.searchBtn){
             new LoadInformation().execute(mEditText.getText().toString());
         } else if(view.getId() == R.id.fabcheck){
-            if(name.size() == 0){
-                Intent i = new Intent(this, travelers.tripplanner.MainActivity.class);
-                startActivity(i);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
+            if(bucklist_place_id.size() > 0 ){
+                storeInDatabase();
+                backToDashboard();
             } else {
-                int Trip_id = saveTrip(mEditText.getText().toString(), save2BucketList.size());
-                int visitID = -1;
-                for(int i = 0; i < save2BucketList.size(); i++){
-                    visitID = saveVisit(name.get(save2BucketList.get(i)), type.get(save2BucketList.get(i)), address.get(save2BucketList.get(i)), imageURl.get(save2BucketList.get(i)), rating.get(save2BucketList.get(i)), Trip_id);
-                }
-                Toast.makeText(this, Trip_id + " " + visitID, Toast.LENGTH_SHORT).show();
+                backToDashboard();
             }
-            Intent i = new Intent(this, travelers.tripplanner.MainActivity.class);
-            startActivity(i);
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
         }
     }
 
-    private int saveVisit(String name, String type, String address, String imageURl, Double rating, int trip_id) {
-        SQLiteOpenHelper dbHelper = new DBhelper(this);
-        SQLiteDatabase database = dbHelper.getReadableDatabase();
+    private void storeInDatabase() {
+        DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
+        DatabaseReference mBucketListRef = mUserIdRef.child("BucketList");
+        DatabaseReference mVisitRef = mBucketListRef.child(mEditText.getText().toString());
 
-        ContentValues values = new ContentValues();
-
-        values.put("VisitName", name);
-        values.put("Type", type);
-        values.put("Address", address);
-        values.put("photoURL", imageURl);
-        values.put("Rating", rating);
-        values.put("TripId", trip_id);
-        long row = database.insert("Visit",null,values);
-
-        database.close();
-
-        return (int)row;
+        for(int i = 0; i < bucklist_place_id.size(); i++){
+            DatabaseReference selection = mVisitRef.child("place_" + i);
+            selection.setValue(place_id.get(i));
+        }
     }
 
-    private int saveTrip(String s, int size) {
-
-        SQLiteOpenHelper dbHelper = new DBhelper(this);
-        SQLiteDatabase database = dbHelper.getReadableDatabase();
-
-        ContentValues values = new ContentValues();
-
-        values.put("TripName", s);
-        values.put("visitNum", size);
-        long row = database.insert("Trip",null,values);
-
-        database.close();
-
-        if(row < 0) return -1;
-        else return (int) row;
+    private void backToDashboard() {
+        Intent i = new Intent(this, travelers.tripplanner.MainActivity.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_righ);
     }
 
     private class LoadInformation extends AsyncTask<String, Void, String> {
@@ -210,6 +177,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         }
                                     });
                                 } else {
+                                    searchRL = findViewById(R.id.searchRL);
+                                    searchRL.setVisibility(View.GONE);
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {

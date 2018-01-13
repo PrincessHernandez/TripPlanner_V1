@@ -1,9 +1,7 @@
 package travelers.tripplanner;
 
 import android.Manifest;
-import android.app.AlertDialog;
 import android.app.FragmentManager;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -21,8 +19,6 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.concurrent.atomic.AtomicReference;
 
 import travelers.tripplanner.fragments.Dashboard;
 import travelers.tripplanner.fragments.GPStracker;
@@ -48,8 +44,6 @@ public class MainActivity extends AppCompatActivity
             finish();
             startActivity(new Intent(this, signUp.class));
         }
-
-        Toast.makeText(this, "Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -77,30 +71,7 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            AlertDialog.Builder builder1;
-            builder1 = new AlertDialog.Builder(this);
-            builder1.setMessage(R.string.want_to_exit);
-            builder1.setCancelable(true);
-
-            final AlertDialog.Builder yes = builder1.setPositiveButton(R.string.yes,
-                    new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id){
-                        Intent intent = new Intent(Intent.ACTION_MAIN);
-                        intent.addCategory(Intent.CATEGORY_HOME);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                    }});
-            builder1.setNegativeButton(
-                    R.string.no,
-                    new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    }
-            );
-            AtomicReference<AlertDialog> alert11 = new AtomicReference<>(builder1.create());
-            alert11.get().show();
-            //super.onBackPressed();
+            super.onBackPressed();
         }
     }
 
@@ -154,8 +125,6 @@ public class MainActivity extends AppCompatActivity
         switch (requestCode) {
             case 123:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this,"GPS permission granted",Toast.LENGTH_LONG).show();
-
                     final GPStracker g = new GPStracker(getApplicationContext());
                     Location l = g.getLocation();
 

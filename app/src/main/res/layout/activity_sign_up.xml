@@ -8,22 +8,9 @@
 
     <View
         android:id="@+id/rightSignupView"
-        android:layout_width="50dp"
+        android:layout_width="70dp"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-        android:background="@color/colorPrimary"/>
-
-    <View
-        android:id="@+id/leftSignUpView"
-        android:layout_width="50dp"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"/>
-
-    <View
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:layout_toEndOf="@+id/leftSignUpView"
-        android:layout_marginStart="2dp"
         android:background="@color/colorPrimary"/>
 
     <View

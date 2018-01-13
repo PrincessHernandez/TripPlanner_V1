@@ -46,12 +46,12 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
 
         dialog = new ProgressDialog(this);
 
-        mButton = findViewById(R.id.btn);
-        mTextView = findViewById(R.id.tv);
-        name =  findViewById(R.id.ET0);
-        email =  findViewById(R.id.ET1);
-        password =  findViewById(R.id.ET2);
-        confirmPassword =  findViewById(R.id.ET3);
+        mButton = (Button) findViewById(R.id.btn);
+        mTextView = (TextView) findViewById(R.id.tv);
+        name = (EditText) findViewById(R.id.ET0);
+        email = (EditText) findViewById(R.id.ET1);
+        password = (EditText) findViewById(R.id.ET2);
+        confirmPassword = (EditText) findViewById(R.id.ET3);
     }
 
     @Override

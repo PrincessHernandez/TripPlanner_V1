@@ -29,10 +29,10 @@ import travelers.tripplanner.fragments.MyLocation;
 
 public class GPStracker {
     private static final String TAG = "GPStracker_Message";
-    Context context;
-    TextView LatText,LngText,Address;
+    private Context context;
+    private TextView LatText,LngText,Address;
     private RequestQueue requestQueue;
-    double lat, lng;
+    private double lat, lng;
 
     public GPStracker(Context c){
         context = c;
