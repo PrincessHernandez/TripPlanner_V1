@@ -33,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import travelers.tripplanner.MainActivity;
 import travelers.tripplanner.R;
 
 public class Maps extends Fragment {
@@ -71,13 +72,63 @@ public class Maps extends Fragment {
                 googleMap.setMyLocationEnabled(true);
 
                 // For dropping a marker at a point on the Map
-                LatLng user_location = new LatLng(GPStracker.userLat, GPStracker.userLng);
+                LatLng user_location = new LatLng(MainActivity.latitude, MainActivity.longitude);
                 googleMap.addMarker(new MarkerOptions().position(user_location).
                         title("User Location").
                         snippet("This is where you are!")
                         .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_user_loc)));
 
-                
+                DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+                DatabaseReference mUserIdRef = mRootRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+                DatabaseReference mBucketList = mUserIdRef.child("BucketList");
+                mBucketList.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot tripSnap: dataSnapshot.getChildren()) {
+                            for(DataSnapshot placeSnap: tripSnap.getChildren()){
+                                String tempName = new String();
+                                String tempAddress = new String();
+                                Double tempLat = new Double(0);
+                                Double tempLng = new Double(0);
+                                Boolean tempVisited = false;
+                                for(DataSnapshot placeAttributeSnap: placeSnap.getChildren()){
+                                    if(placeAttributeSnap.getKey().equals("name")) tempName = placeAttributeSnap.getValue(String.class);
+                                    if(placeAttributeSnap.getKey().equals("address")) tempAddress = placeAttributeSnap.getValue(String.class);
+                                    if(placeAttributeSnap.getKey().equals("latitude")) tempLat = placeAttributeSnap.getValue(Double.class);
+                                    if(placeAttributeSnap.getKey().equals("longitude")) tempLng = placeAttributeSnap.getValue(Double.class);
+                                    if(placeAttributeSnap.getKey().equals("visited")) tempVisited = placeAttributeSnap.getValue(Boolean.class);
+                                }
+                                place_list.add(new place(tempName, tempAddress, tempLat, tempLng, tempVisited));
+//                                place_list.add(new LatLng(tempLat, tempLng));
+//                                if(tempVisited){
+//                                    googleMap.addMarker(new MarkerOptions().position(place_list.get(i)).
+//                                            title(tempName).
+//                                            snippet(tempAddress)
+//                                            .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_visited)));
+//                                } else {
+//                                    googleMap.addMarker(new MarkerOptions().position(place_list.get(i)).
+//                                            title(tempName).
+//                                            snippet(tempAddress)
+//                                            .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_visit)));
+//                                }
+                            }
+                        }
+
+                        for(int i = 0; i < place_list.size(); i++){
+                            latLng_list.add(new LatLng(place_list.get(i).getLat(), place_list.get(i).getLng()));
+                                if(place_list.get(i).getVisited()){
+                                    googleMap.addMarker(new MarkerOptions().position(latLng_list.get(i)).
+                                            title(place_list.get(i).getName()).
+                                            snippet(place_list.get(i).getAddress())
+                                            .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_visited)));
+                                } else {
+                                    googleMap.addMarker(new MarkerOptions().position(latLng_list.get(i)).
+                                            title(place_list.get(i).getName()).
+                                            snippet(place_list.get(i).getAddress())
+                                            .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_visit)));
+                                }
+                        }
 
                     }
 

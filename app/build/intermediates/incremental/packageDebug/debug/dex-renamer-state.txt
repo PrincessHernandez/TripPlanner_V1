@@ -1,4 +1,4 @@
-#Sun Jan 14 15:38:53 GMT-05:00 2018
+#Sun Jan 14 15:56:09 EST 2018
 path.1=classes.dex
 path.0=classes.dex
 renamed.5=classes6.dex
@@ -7,12 +7,12 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.5=C\:\\Users\\n01139945\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
-base.4=C\:\\Users\\n01139945\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
-base.3=C\:\\Users\\n01139945\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\14
-base.2=C\:\\Users\\n01139945\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
-base.1=C\:\\Users\\n01139945\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\16
-base.0=C\:\\Users\\n01139945\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
+base.5=Z\:\\Android\\GitHub\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\32
+base.4=Z\:\\Android\\GitHub\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\35
+base.3=Z\:\\Android\\GitHub\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\34
+base.2=Z\:\\Android\\GitHub\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\36
+base.1=Z\:\\Android\\GitHub\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\31
+base.0=Z\:\\Android\\GitHub\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\33
 path.5=classes.dex
 path.4=classes.dex
 path.3=classes.dex
