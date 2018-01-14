@@ -172,16 +172,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     name.add(response.getJSONArray("results").getJSONObject(i).getString("name"));
                                     type.add(response.getJSONArray("results").getJSONObject(i).getJSONArray("types").get(0).toString());
                                     address.add(response.getJSONArray("results").getJSONObject(i).getString("formatted_address"));
-                                    imageURl.add("https://maps.googleapis.com/maps/api/place/photo?maxheight=400&photoreference=" +
-                                            response.getJSONArray("results").getJSONObject(i).getJSONArray("photos").getJSONObject(0).getString("photo_reference")
-                                            + "&key=AIzaSyC1Svb1mu2sq-sdXzrRoI-VVsSR4BoWEkA");
+                                    try{
+                                        imageURl.add("https://maps.googleapis.com/maps/api/place/photo?maxheight=400&photoreference=" +
+                                                response.getJSONArray("results").getJSONObject(i).getJSONArray("photos").getJSONObject(0).getString("photo_reference")
+                                                + "&key=AIzaSyC1Svb1mu2sq-sdXzrRoI-VVsSR4BoWEkA");
+                                    }catch (JSONException e){
+                                        imageURl.add("https://cdn.browshot.com/static/images/not-found.png");
+                                        e.printStackTrace();
+                                    }
+
                                     place_id.add(response.getJSONArray("results").getJSONObject(i).getString("place_id"));
                                     latitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(i).getJSONObject("geometry").getJSONObject("location").getString("lat")));
                                     longitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(i).getJSONObject("geometry").getJSONObject("location").getString("lng")));
-                                    String TempRating = response.getJSONArray("results").getJSONObject(i).getString("rating");
-                                    rating.add(Double.parseDouble(TempRating));
+
+                                    try{
+                                        String TempRating = response.getJSONArray("results").getJSONObject(i).getString("rating");
+                                        rating.add(Double.parseDouble(TempRating));
+                                    }catch (JSONException e){
+                                        String TempRating = "0.0";
+                                        rating.add(Double.parseDouble(TempRating));
+                                        e.printStackTrace();
+                                    }
                                 }
-                                mProgressBar.setVisibility(View.INVISIBLE);
+                                mProgressBar.setVisibility(View.GONE);
                                 if(NOR == 0){
                                     runOnUiThread(new Runnable() {
                                         @Override

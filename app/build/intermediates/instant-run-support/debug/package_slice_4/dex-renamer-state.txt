@@ -1,4 +1,4 @@
-#Sun Jan 14 04:13:42 EST 2018
-base.0=Z\:\\Android\\GitHub\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\5
+#Sun Jan 14 15:06:01 GMT-05:00 2018
+base.0=C\:\\Users\\n01139945\\Desktop\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\4
 path.0=classes.dex
 renamed.0=classes.dex

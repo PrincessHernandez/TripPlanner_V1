@@ -37,7 +37,7 @@ public class  GPStracker {
     private Context context;
     private TextView LatText,LngText,Address;
     private RequestQueue requestQueue;
-    private double userLat, userLng;
+    public static double userLat, userLng;
     private ArrayList<Integer> History;
 
     public GPStracker(Context c){
