@@ -2,21 +2,32 @@ package travelers.tripplanner.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -27,7 +38,6 @@ import travelers.tripplanner.addTrip.locationsAdapter;
 
 public class Dashboard extends Fragment implements View.OnClickListener{
     private ArrayList<String> name, number;
-    private ListView mListView;
     private ListView list;
     protected TripAdapter adapter;
 
@@ -39,19 +49,63 @@ public class Dashboard extends Fragment implements View.OnClickListener{
 
         name = new ArrayList<>();
         number = new ArrayList<>();
-        name.add("Guru");
-        name.add("Rav");
-        number.add("2");
-        number.add("3");
         FloatingActionButton addTrips = view.findViewById(R.id.fab);
-        this.mListView = view.findViewById(R.id.trips_lv_2);
         adapter = new TripAdapter(getActivity(), name, number);
         addTrips.setOnClickListener(this);
         list = view.findViewById(R.id.trips_lv_2);
         list.setAdapter(adapter);
 
-        return view;
+        FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
+        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
+        DatabaseReference mBucketListRef = mUserIdRef.child("BucketList");
+        //You can use the single or the value.. depending if you want to keep track
+        mBucketListRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snap: dataSnapshot.getChildren()) {
+                    name.add(snap.getKey());
+                    number.add(String.valueOf(snap.getChildrenCount()));
+                }
+                ProgressBar progressBar = getView().findViewById(R.id.progressBar_dashboard);
+                progressBar.setVisibility(View.GONE);
+                if(name.size() > 0){
+                    list.setAdapter(adapter);
+                }else {
+                    TextView tv = getView().findViewById(R.id.dashboard_empty_tv);
+                    tv.setVisibility(View.VISIBLE);
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Bundle bundle=new Bundle();
+                bundle.putString("name",name.get(i));
+                bundle.putString("number",number.get(i));
+                BucketList mBucketList = new BucketList();
+                mBucketList.setArguments(bundle);
+
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
+                transaction.replace(R.id.content_frame, mBucketList);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
     }
 
     @Override
@@ -89,8 +143,8 @@ public class Dashboard extends Fragment implements View.OnClickListener{
             TextView trip_name = mView.findViewById(R.id.trip_name);
             TextView trip_num = mView.findViewById(R.id.trip_num);
 
-            trip_name.setText(this.name.get(position));
-            trip_num.setText(this.number.get(position));
+            trip_name.setText(String.format("Place: %s", this.name.get(position)));
+            trip_num.setText(String.format("Number of trips: %s", this.number.get(position)));
 
             return mView;
         }

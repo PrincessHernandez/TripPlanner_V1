@@ -4,6 +4,31 @@
     android:layout_height="match_parent"
     tools:context="travelers.tripplanner.fragments.Dashboard">
 
+    <TextView
+        android:id="@+id/dashboard_empty_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Bucket list empty!"
+        android:visibility="gone"/>
+
+    <ListView
+        android:id="@+id/trips_lv_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:clickable="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:listSelector="@null"
+        android:minHeight="60dp"
+        android:padding="20dp"
+        android:stretchMode="spacingWidthUniform"
+        android:layoutAnimation = "@anim/item_anim"/>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -13,30 +38,15 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="30dp"
         android:layout_marginEnd="30dp"
+        android:elevation="20dp"
+        android:backgroundTint="@color/fab"
         android:clickable="true"/>
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/progressBar_dashboard"
+        style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Bucket list empty!"/>
-
-    <ListView
-        android:id="@+id/trips_lv_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:numColumns="auto_fit"
-        android:verticalSpacing="5dp"
-        android:columnWidth="400dp"
-        android:minHeight="60dp"
-        android:clickable="false"
-        android:padding="10dp"
-        android:elevation="10dp"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:listSelector="@null"
-        android:stretchMode="spacingWidthUniform"/>
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>

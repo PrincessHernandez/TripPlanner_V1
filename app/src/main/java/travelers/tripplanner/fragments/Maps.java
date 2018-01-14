@@ -40,7 +40,7 @@ public class Maps extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-       // return inflater.inflate(R.layout.fragment_maps, container, false);
+
         mMapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap mMap) {
@@ -96,5 +96,3 @@ public class Maps extends Fragment {
         mMapView.onLowMemory();
     }
 }
-
-

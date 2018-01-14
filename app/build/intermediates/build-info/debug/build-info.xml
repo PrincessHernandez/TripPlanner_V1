@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
     abi="x86"
-    api-level="26"
-    build-mode="FULL"
+    api-level="27"
+    build-mode="COLD"
     density="xxhdpi"
     format="10"
     plugin-version="3.0.1"
-    timestamp="1515902814886"
-    token="-2780695545513481464"
-    verifier="FULL_BUILD_REQUESTED" >
+    timestamp="1515923373326"
+    token="-1569379139933266872"
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
@@ -23,83 +23,95 @@
         name="verifier"
         duration="0" />
 
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\outputs\apk\debug\app-debug.apk"
-        type="SPLIT_MAIN" />
-
     <build
         build-mode="FULL"
-        timestamp="1515902814886"
+        timestamp="1515919232155"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\n01139945\Desktop\TripPlanner_V1\app\build\outputs\apk\debug\app-debug.apk"
+            location="Z:\Android\GitHub\trippie\app\build\outputs\apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="R_CLASS_CHANGE"
+        timestamp="1515921216763"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="Z:\Android\GitHub\trippie\app\build\outputs\apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1515922540768"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1515923232660"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="Z:\Android\GitHub\trippie\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1515923373326"
+        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

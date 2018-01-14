@@ -35,8 +35,8 @@ import travelers.tripplanner.R;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private ListView list;
-    private ArrayList<String> name, type, address, imageURl, place_id, bucklist_place_id;
-    private ArrayList<Double> rating;
+    private ArrayList<String> name, type, address, imageURl, place_id, bucklist_place_id, bucklist_place_name, bucklist_place_address;
+    private ArrayList<Double> rating, latitude, longitude, bucketlist_latitude, bucketlist_longitude;
     private EditText mEditText;
     protected locationsAdapter adapter;
     protected AlertDialog.Builder a_builder;
@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FloatingActionButton check;
     private DatabaseReference mRootRef;
     private FirebaseAuth mFirebaseAuth;
-    private Integer ListLength = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +66,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rating = new ArrayList<>();
         place_id = new ArrayList<>();
         bucklist_place_id = new ArrayList<>();
+        latitude = new ArrayList<>();
+        longitude = new ArrayList<>();
+        bucketlist_latitude = new ArrayList<>();
+        bucketlist_longitude = new ArrayList<>();
+        bucklist_place_name = new ArrayList<>();
+        bucklist_place_address = new ArrayList<>();
 
-        adapter = new locationsAdapter(MainActivity.this, name, type, address, imageURl, rating, place_id);
+        adapter = new locationsAdapter(MainActivity.this, name, type, address, imageURl, rating, place_id, latitude, longitude);
         list =  findViewById(R.id.lv);
         list.setAdapter(adapter);
 
@@ -85,14 +90,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
-//                DatabaseReference mBucketListRef = mUserIdRef.child("BucketList");
-//                DatabaseReference mVisitRef = mBucketListRef.child(mEditText.getText().toString());
-//                DatabaseReference selection = mVisitRef.child("place" + ListLength);
-//                ListLength++;
-//                selection.setValue(place_id.get(i));
                 Toast.makeText(MainActivity.this, name.get(i) + " added to bucketlist!", Toast.LENGTH_SHORT).show();
                 bucklist_place_id.add(place_id.get(i));
+                bucketlist_latitude.add(latitude.get(i));
+                bucketlist_longitude.add(longitude.get(i));
+                bucklist_place_name.add(name.get(i));
+                bucklist_place_address.add(address.get(i));
             }
         });
 
@@ -117,10 +120,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
         DatabaseReference mBucketListRef = mUserIdRef.child("BucketList");
         DatabaseReference mVisitRef = mBucketListRef.child(mEditText.getText().toString());
-
+        DatabaseReference mLatitude, mLongitude, id, name, address, visited;
         for(int i = 0; i < bucklist_place_id.size(); i++){
-            DatabaseReference selection = mVisitRef.child("place_" + i);
-            selection.setValue(place_id.get(i));
+            DatabaseReference selection = mVisitRef.child(place_id.get(i));
+
+            visited = selection.child("visited");
+            visited.setValue(false);
+
+            mLatitude = selection.child("latitude");
+            mLatitude.setValue(bucketlist_latitude.get(i));
+
+            mLongitude = selection.child("longitude");
+            mLongitude.setValue(bucketlist_longitude.get(i));
+
+            id = selection.child("id");
+            id.setValue(place_id.get(i));
+
+            name = selection.child("name");
+            name.setValue(bucklist_place_name.get(i));
+
+            address = selection.child("address");
+            address.setValue(bucklist_place_address.get(i));
         }
     }
 
@@ -156,6 +176,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                             response.getJSONArray("results").getJSONObject(i).getJSONArray("photos").getJSONObject(0).getString("photo_reference")
                                             + "&key=AIzaSyC1Svb1mu2sq-sdXzrRoI-VVsSR4BoWEkA");
                                     place_id.add(response.getJSONArray("results").getJSONObject(i).getString("place_id"));
+                                    latitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(i).getJSONObject("geometry").getJSONObject("location").getString("lat")));
+                                    longitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(i).getJSONObject("geometry").getJSONObject("location").getString("lng")));
                                     String TempRating = response.getJSONArray("results").getJSONObject(i).getString("rating");
                                     rating.add(Double.parseDouble(TempRating));
                                 }

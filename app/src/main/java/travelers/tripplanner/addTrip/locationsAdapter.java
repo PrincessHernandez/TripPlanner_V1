@@ -1,7 +1,6 @@
 package travelers.tripplanner.addTrip;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
@@ -20,9 +19,9 @@ import travelers.tripplanner.R;
 public class locationsAdapter extends ArrayAdapter<String> {
     private Activity mActivity;
     private ArrayList<String> name, type, address, imageURl, place_id;
-    private ArrayList<Double> rating;
+    private ArrayList<Double> rating, latitude, longitude;
 
-    public locationsAdapter(@NonNull Activity activity, ArrayList<String> name, ArrayList<String> type, ArrayList<String> address, ArrayList<String> imageURl, ArrayList<Double> rating, ArrayList<String> placeID) {
+    public locationsAdapter(@NonNull Activity activity, ArrayList<String> name, ArrayList<String> type, ArrayList<String> address, ArrayList<String> imageURl, ArrayList<Double> rating, ArrayList<String> placeID, ArrayList<Double> latitude, ArrayList<Double> longitude) {
         super(activity, R.layout.place_item, name);
         this.mActivity = activity;
         this.name = name;
@@ -31,6 +30,8 @@ public class locationsAdapter extends ArrayAdapter<String> {
         this.imageURl = imageURl;
         this.rating = rating;
         this.place_id = placeID;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     @NonNull
