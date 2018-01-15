@@ -72,7 +72,7 @@ public class MyLocation extends Fragment {
             @Override
             public void run() {
                 JsonObjectRequest request = new JsonObjectRequest("https://maps.googleapis.com/maps/api/geocode/json?" +
-                        "latlng="+lat+","+lng,
+                        getString(R.string.latlng)+lat+","+lng,
                         new Response.Listener<JSONObject>(){
 
                             @Override

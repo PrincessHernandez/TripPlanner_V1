@@ -76,14 +76,14 @@ public class BucketList extends Fragment {
         FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
-        DatabaseReference mBucketListRef = mUserIdRef.child("BucketList");
+        DatabaseReference mBucketListRef = mUserIdRef.child(getString(R.string.BucketList));
         DatabaseReference mPlaceRef = mBucketListRef.child(bundle.getString("name"));
         mPlaceRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snap: dataSnapshot.getChildren()) {
                     for (DataSnapshot placesnap: snap.getChildren()) {
-                        if(placesnap.getKey().equals("id")) bucklist_place_id.add(placesnap.getValue(String.class));
+                        if(placesnap.getKey().equals(getString(R.string.id))) bucklist_place_id.add(placesnap.getValue(String.class));
                     }
                 }
                 if(bucklist_place_id.size() > 0) {
@@ -108,7 +108,7 @@ public class BucketList extends Fragment {
 
                 private void startURL(String place) {
                     JsonObjectRequest request = new JsonObjectRequest("https://maps.googleapis.com/maps/api/place/textsearch/json?" +
-                            "query=Tourist%20places%20in%20" + place + "&key=AIzaSyC1Svb1mu2sq-sdXzrRoI-VVsSR4BoWEkA",
+                            getString(R.string.query) + place + getString(R.string.API_KEY),
                             new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
@@ -121,9 +121,9 @@ public class BucketList extends Fragment {
                                             name.add(response.getJSONArray("results").getJSONObject(i).getString("name"));
                                             type.add(response.getJSONArray("results").getJSONObject(i).getJSONArray("types").get(0).toString());
                                             address.add(response.getJSONArray("results").getJSONObject(i).getString("formatted_address"));
-                                            imageURl.add("https://maps.googleapis.com/maps/api/place/photo?maxheight=400&photoreference=" +
+                                            imageURl.add(getString(R.string.map_google_api) +
                                                     response.getJSONArray("results").getJSONObject(i).getJSONArray("photos").getJSONObject(0).getString("photo_reference")
-                                                    + "&key=AIzaSyC1Svb1mu2sq-sdXzrRoI-VVsSR4BoWEkA");
+                                                    + getString(R.string.API_KEY));
                                             String TempRating = response.getJSONArray("results").getJSONObject(i).getString("rating");
                                             rating.add(Double.parseDouble(TempRating));
                                             latitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getString("lat")));
@@ -135,14 +135,14 @@ public class BucketList extends Fragment {
                                                 @Override
                                                 public void run() {
                                                     a_builder = new AlertDialog.Builder(getActivity());
-                                                    a_builder.setMessage("No suggestions found. Try again!")
+                                                    a_builder.setMessage(R.string.no_suggestions_found)
                                                             .setCancelable(false)
                                                             .setPositiveButton("OK!", new DialogInterface.OnClickListener() {
                                                                 @Override
                                                                 public void onClick(DialogInterface dialog, int which) {}
                                                             });
                                                     alert = a_builder.create();
-                                                    alert.setTitle("Try Again");
+                                                    alert.setTitle(getString(R.string.tryagain));
                                                     alert.show();
                                                 }
                                             });

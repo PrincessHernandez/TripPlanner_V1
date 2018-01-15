@@ -71,20 +71,20 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
                 if(!checkEmpty()){
                     if(valid()){
                         if(!validEmail()){
-                            AlertBox("Invalid Email!", "You entered an invalid email address", view);
+                            AlertBox(getString(R.string.invalid_email), getString(R.string.message1), view);
                             break;
                         }
 
                         if(!validPassword()){
-                            AlertBox("Invalid Password!", "Password must contain atleast 6 characters", view);
+                            AlertBox(getString(R.string.invalid_Password), getString(R.string.message2), view);
                             break;
                         }
                         SignUp();
                     } else{
-                        AlertBox("Wrong Password", "Password did not match, try again!", view);
+                        AlertBox(getString(R.string.wrong_password), getString(R.string.message3), view);
                     }
                 } else{
-                    AlertBox("Empty Field", "All fields must be filled", view);
+                    AlertBox(getString(R.string.empty_field), getString(R.string.message4), view);
                 }
                 break;
             case R.id.tv:
@@ -101,7 +101,7 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void SignUp() {
-        dialog = ProgressDialog.show(this, "Please wait!", "Registering user...");
+        dialog = ProgressDialog.show(this, getString(R.string.please_wait), getString(R.string.registering_user));
         mFirebaseAuth.createUserWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -114,7 +114,7 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
                             finish();
                             startActivity(i);
                         }else{
-                            Toast.makeText(signUp.this, "Could not make the user!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(signUp.this, R.string.text1, Toast.LENGTH_SHORT).show();
                         }
                         dialog.dismiss();
                     }
@@ -125,7 +125,7 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
         AlertDialog.Builder a_builder = new AlertDialog.Builder(view.getContext());
         a_builder.setMessage(msg)
                 .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                     }

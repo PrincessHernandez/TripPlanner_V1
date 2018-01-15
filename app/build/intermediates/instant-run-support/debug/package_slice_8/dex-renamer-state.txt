@@ -1,4 +1,4 @@
-#Sun Jan 14 15:56:08 EST 2018
-base.0=Z\:\\Android\\GitHub\\trippie\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\28
+#Mon Jan 15 14:29:58 GMT-05:00 2018
+base.0=C\:\\Users\\n01139945\\Desktop\\TripPlanner_V1\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\8
 path.0=classes.dex
 renamed.0=classes.dex

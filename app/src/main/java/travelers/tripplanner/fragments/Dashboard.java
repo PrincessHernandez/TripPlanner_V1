@@ -58,7 +58,7 @@ public class Dashboard extends Fragment implements View.OnClickListener{
         FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
-        DatabaseReference mBucketListRef = mUserIdRef.child("BucketList");
+        DatabaseReference mBucketListRef = mUserIdRef.child(getString(R.string.BucketList));
         //You can use the single or the value.. depending if you want to keep track
         mBucketListRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -94,8 +94,8 @@ public class Dashboard extends Fragment implements View.OnClickListener{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Bundle bundle=new Bundle();
-                bundle.putString("name",name.get(i));
-                bundle.putString("number",number.get(i));
+                bundle.putString(getString(R.string.Name),name.get(i));
+                bundle.putString(getString(R.string.Number),number.get(i));
                 BucketList mBucketList = new BucketList();
                 mBucketList.setArguments(bundle);
 
@@ -143,8 +143,8 @@ public class Dashboard extends Fragment implements View.OnClickListener{
             TextView trip_name = mView.findViewById(R.id.trip_name);
             TextView trip_num = mView.findViewById(R.id.trip_num);
 
-            trip_name.setText(String.format("Place: %s", this.name.get(position)));
-            trip_num.setText(String.format("Number of trips: %s", this.number.get(position)));
+            trip_name.setText(String.format(getString(R.string.Place), this.name.get(position)));
+            trip_num.setText(String.format(getString(R.string.Number_of_trips), this.number.get(position)));
 
             return mView;
         }

@@ -43,7 +43,7 @@ public class history extends Fragment {
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference mUserIdRef = mRootRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-        DatabaseReference mBucketList = mUserIdRef.child("BucketList");
+        DatabaseReference mBucketList = mUserIdRef.child(getString(R.string.BucketList));
         mBucketList.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -54,16 +54,16 @@ public class history extends Fragment {
                         String tempName = new String();
                         String tempAddress = new String();
                         for(DataSnapshot placeAttributeSnap: placeSnap.getChildren()){
-                            if(placeAttributeSnap.getKey().equals("visited")) {
+                            if(placeAttributeSnap.getKey().equals(getString(R.string.visited))) {
                                 if (placeAttributeSnap.getValue(Boolean.class)) {
                                     place_name.add(tempName);
                                     place_address.add(tempAddress);
                                 }
                             }
-                            if(placeAttributeSnap.getKey().equals("name")) {
+                            if(placeAttributeSnap.getKey().equals(getString(R.string.Name))) {
                                 tempName = placeAttributeSnap.getValue(String.class);
                             }
-                            if(placeAttributeSnap.getKey().equals("address")) {
+                            if(placeAttributeSnap.getKey().equals(getString(R.string.Address))) {
                                 tempAddress = placeAttributeSnap.getValue(String.class);
                             }
                         }
@@ -107,7 +107,7 @@ public class history extends Fragment {
             TextView place_name = mView.findViewById(R.id.place_name_checked_tv);
             TextView place_address = mView.findViewById(R.id.place_address_checked_tv);
 
-            place_name.setText(String.format("Place: %s", this.name.get(position)));
+            place_name.setText(String.format(getString(R.string.Place), this.name.get(position)));
             place_address.setText(String.format("Address: %s", this.address.get(position)));
 
             return mView;

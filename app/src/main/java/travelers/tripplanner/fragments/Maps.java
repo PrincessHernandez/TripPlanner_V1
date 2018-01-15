@@ -74,14 +74,14 @@ public class Maps extends Fragment {
                 // For dropping a marker at a point on the Map
                 LatLng user_location = new LatLng(MainActivity.latitude, MainActivity.longitude);
                 googleMap.addMarker(new MarkerOptions().position(user_location).
-                        title("User Location").
+                        title(getString(R.string.User_Location)).
                         snippet("This is where you are!")
                         .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_user_loc)));
 
                 DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
                 DatabaseReference mUserIdRef = mRootRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-                DatabaseReference mBucketList = mUserIdRef.child("BucketList");
+                DatabaseReference mBucketList = mUserIdRef.child(getString(R.string.BucketList));
                 mBucketList.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -93,11 +93,11 @@ public class Maps extends Fragment {
                                 Double tempLng = new Double(0);
                                 Boolean tempVisited = false;
                                 for(DataSnapshot placeAttributeSnap: placeSnap.getChildren()){
-                                    if(placeAttributeSnap.getKey().equals("name")) tempName = placeAttributeSnap.getValue(String.class);
-                                    if(placeAttributeSnap.getKey().equals("address")) tempAddress = placeAttributeSnap.getValue(String.class);
-                                    if(placeAttributeSnap.getKey().equals("latitude")) tempLat = placeAttributeSnap.getValue(Double.class);
-                                    if(placeAttributeSnap.getKey().equals("longitude")) tempLng = placeAttributeSnap.getValue(Double.class);
-                                    if(placeAttributeSnap.getKey().equals("visited")) tempVisited = placeAttributeSnap.getValue(Boolean.class);
+                                    if(placeAttributeSnap.getKey().equals(getString(R.string.Name))) tempName = placeAttributeSnap.getValue(String.class);
+                                    if(placeAttributeSnap.getKey().equals(getString(R.string.Address))) tempAddress = placeAttributeSnap.getValue(String.class);
+                                    if(placeAttributeSnap.getKey().equals(getString(R.string.Latitude))) tempLat = placeAttributeSnap.getValue(Double.class);
+                                    if(placeAttributeSnap.getKey().equals(getString(R.string.Longitude))) tempLng = placeAttributeSnap.getValue(Double.class);
+                                    if(placeAttributeSnap.getKey().equals(getString(R.string.Visited))) tempVisited = placeAttributeSnap.getValue(Boolean.class);
                                 }
                                 place_list.add(new place(tempName, tempAddress, tempLat, tempLng, tempVisited));
 //                                place_list.add(new LatLng(tempLat, tempLng));

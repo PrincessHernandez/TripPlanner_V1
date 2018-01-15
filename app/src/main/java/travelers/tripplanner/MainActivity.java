@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity
         super.onStart();
         DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
-        DatabaseReference mNameRef = mUserIdRef.child("Name");
+        DatabaseReference mNameRef = mUserIdRef.child(getString(R.string.name));
 
         mNameRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        DatabaseReference mBucketList = mUserIdRef.child("BucketList");
+        DatabaseReference mBucketList = mUserIdRef.child(getString(R.string.BucketList));
         mBucketList.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -119,12 +119,12 @@ public class MainActivity extends AppCompatActivity
                 for (DataSnapshot tripSnap: dataSnapshot.getChildren()) {
                     for(DataSnapshot placeSnap: tripSnap.getChildren()){
                         for(DataSnapshot placeAttributeSnap: placeSnap.getChildren()){
-                            if(placeAttributeSnap.getKey().equals("id")) {
+                            if(placeAttributeSnap.getKey().equals(getString(R.string.Id))) {
                                 trip_name.add(tripSnap.getKey());
                                 place_id.add(placeAttributeSnap.getValue(String.class));
                             }
-                            else if(placeAttributeSnap.getKey().equals("latitude")) place_lat.add(placeAttributeSnap.getValue(Double.class));
-                            else if(placeAttributeSnap.getKey().equals("longitude")) place_lng.add(placeAttributeSnap.getValue(Double.class));
+                            else if(placeAttributeSnap.getKey().equals(getString(R.string.Lati))) place_lat.add(placeAttributeSnap.getValue(Double.class));
+                            else if(placeAttributeSnap.getKey().equals(getString(R.string.Longi))) place_lng.add(placeAttributeSnap.getValue(Double.class));
                         }
                     }
                 }
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                 } else {
-                    Toast.makeText(this,"GPS not permission granted",Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.text2,Toast.LENGTH_LONG).show();
                 }
                 break;
         }

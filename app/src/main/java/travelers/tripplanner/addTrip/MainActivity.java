@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(MainActivity.this, name.get(i) + " added to bucketlist!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, name.get(i) + getString(R.string.added_to_bucketlist), Toast.LENGTH_SHORT).show();
                 bucklist_place_id.add(place_id.get(i));
                 bucketlist_latitude.add(latitude.get(i));
                 bucketlist_longitude.add(longitude.get(i));
@@ -118,28 +118,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void storeInDatabase() {
         DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
-        DatabaseReference mBucketListRef = mUserIdRef.child("BucketList");
+        DatabaseReference mBucketListRef = mUserIdRef.child(getString(R.string.bucketlist));
         DatabaseReference mVisitRef = mBucketListRef.child(mEditText.getText().toString());
         DatabaseReference mLatitude, mLongitude, id, name, address, visited;
         for(int i = 0; i < bucklist_place_id.size(); i++){
             DatabaseReference selection = mVisitRef.child(place_id.get(i));
 
-            visited = selection.child("visited");
+            visited = selection.child(getString(R.string.visited));
             visited.setValue(false);
 
-            mLatitude = selection.child("latitude");
+            mLatitude = selection.child(getString(R.string.Latitude));
             mLatitude.setValue(bucketlist_latitude.get(i));
 
-            mLongitude = selection.child("longitude");
+            mLongitude = selection.child(getString(R.string.Longitude));
             mLongitude.setValue(bucketlist_longitude.get(i));
 
-            id = selection.child("id");
+            id = selection.child(getString(R.string.id));
             id.setValue(place_id.get(i));
 
-            name = selection.child("name");
+            name = selection.child(getString(R.string.Name));
             name.setValue(bucklist_place_name.get(i));
 
-            address = selection.child("address");
+            address = selection.child(getString(R.string.Address));
             address.setValue(bucklist_place_address.get(i));
         }
     }
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         private void startURL(String place) {
             JsonObjectRequest request = new JsonObjectRequest("https://maps.googleapis.com/maps/api/place/textsearch/json?" +
-                    "query=Tourist%20places%20in%20" + place + "&key=AIzaSyC1Svb1mu2sq-sdXzrRoI-VVsSR4BoWEkA",
+                    getString(R.string.query) + place + getString(R.string.API_KEY),
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
@@ -173,23 +173,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     type.add(response.getJSONArray("results").getJSONObject(i).getJSONArray("types").get(0).toString());
                                     address.add(response.getJSONArray("results").getJSONObject(i).getString("formatted_address"));
                                     try{
-                                        imageURl.add("https://maps.googleapis.com/maps/api/place/photo?maxheight=400&photoreference=" +
+                                        imageURl.add(getString(R.string.map_google_api) +
                                                 response.getJSONArray("results").getJSONObject(i).getJSONArray("photos").getJSONObject(0).getString("photo_reference")
-                                                + "&key=AIzaSyC1Svb1mu2sq-sdXzrRoI-VVsSR4BoWEkA");
+                                                + getString(R.string.API_KEY));
                                     }catch (JSONException e){
-                                        imageURl.add("https://cdn.browshot.com/static/images/not-found.png");
+                                        imageURl.add(getString(R.string.img_url));
                                         e.printStackTrace();
                                     }
 
                                     place_id.add(response.getJSONArray("results").getJSONObject(i).getString("place_id"));
-                                    latitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(i).getJSONObject("geometry").getJSONObject("location").getString("lat")));
-                                    longitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(i).getJSONObject("geometry").getJSONObject("location").getString("lng")));
+                                    latitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(i).getJSONObject(getString(R.string.geometry)).getJSONObject("location").getString("lat")));
+                                    longitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(i).getJSONObject(getString(R.string.geometry)).getJSONObject("location").getString("lng")));
 
                                     try{
                                         String TempRating = response.getJSONArray("results").getJSONObject(i).getString("rating");
                                         rating.add(Double.parseDouble(TempRating));
                                     }catch (JSONException e){
-                                        String TempRating = "0.0";
+                                        String TempRating = getString(R.string.temp_rating);
                                         rating.add(Double.parseDouble(TempRating));
                                         e.printStackTrace();
                                     }
@@ -200,14 +200,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         @Override
                                         public void run() {
                                             a_builder = new AlertDialog.Builder(MainActivity.this);
-                                            a_builder.setMessage("No suggestions found. Try again!")
+                                            a_builder.setMessage(R.string.no_suggestions_found)
                                                     .setCancelable(false)
                                                     .setPositiveButton("OK!", new DialogInterface.OnClickListener() {
                                                         @Override
                                                         public void onClick(DialogInterface dialog, int which) {}
                                                     });
                                             alert = a_builder.create();
-                                            alert.setTitle("Try Again");
+                                            alert.setTitle(getString(R.string.tryagain));
                                             alert.show();
                                         }
                                     });

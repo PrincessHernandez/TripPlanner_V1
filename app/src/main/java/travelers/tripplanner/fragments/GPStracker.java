@@ -30,6 +30,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 
 import travelers.tripplanner.MainActivity;
+import travelers.tripplanner.R;
 import travelers.tripplanner.fragments.MyLocation;
 
 public class  GPStracker {
@@ -78,12 +79,12 @@ public class  GPStracker {
                     FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
                     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
                     DatabaseReference mUserIdRef = mRootRef.child(mFirebaseAuth.getCurrentUser().getUid());
-                    DatabaseReference mBucketListRef = mUserIdRef.child("BucketList");
+                    DatabaseReference mBucketListRef = mUserIdRef.child(context.getString(R.string.BucketList));
                     DatabaseReference mTripRef, mPlaceRef, visited;
                     for(int i = 0; i < History.size(); i++){
                         mTripRef = mBucketListRef.child(MainActivity.trip_name.get(History.get(i)));
                         mPlaceRef = mTripRef.child(MainActivity.place_id.get(History.get(i)));
-                        visited = mPlaceRef.child("visited");
+                        visited = mPlaceRef.child(context.getString(R.string.visited));
                         visited.setValue(true);
                     }
                 }

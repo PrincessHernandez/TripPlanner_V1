@@ -54,7 +54,7 @@ public class signIn extends AppCompatActivity implements View.OnClickListener{
                 if(!checkEmpty()){
                     login();
                 } else{
-                    AlertBox("Empty Field", "All fields must be filled", view);
+                    AlertBox(getString(R.string.Empty_field), getString(R.string.all_fields_must_be_filled), view);
                 }
                 break;
             case R.id.tv:
@@ -67,7 +67,7 @@ public class signIn extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void login() {
-        dialog = ProgressDialog.show(this, "Please wait!", "Registering user...");
+        dialog = ProgressDialog.show(this, getString(R.string.Please_wait), getString(R.string.Registering_User));
         mFirebaseAuth.signInWithEmailAndPassword(username.getText().toString().trim(), password.getText().toString().trim())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -91,7 +91,7 @@ public class signIn extends AppCompatActivity implements View.OnClickListener{
         AlertDialog.Builder a_builder = new AlertDialog.Builder(view.getContext());
         a_builder.setMessage(msg)
                 .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                     }
