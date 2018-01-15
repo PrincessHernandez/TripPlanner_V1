@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\n01139945\\Desktop\\TripPlanner_V1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "C:\\Users\\n01109108\\Documents\\GitHub\\TripPlanner_V1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\n01139945\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-26.1.0.aar\\ebd400b2028385e95956e80400fc55d3\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\n01109108\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-26.1.0.aar\\2aa7c0eb19445fc965519771a9432044\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\n01139945\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\dc632d36a38645b45b19e3ba0ae5a269\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\n01109108\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\c29bd719c4c304edc83e59751c936de4\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",

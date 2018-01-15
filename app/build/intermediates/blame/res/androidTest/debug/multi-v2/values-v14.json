@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\n01139945\\Desktop\\TripPlanner_V1\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v14\\values-v14.xml",
+            "outputFile": "C:\\Users\\n01109108\\Documents\\GitHub\\TripPlanner_V1\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v14\\values-v14.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\n01139945\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\dc632d36a38645b45b19e3ba0ae5a269\\res\\values-v14\\values-v14.xml",
+                    "source": "C:\\Users\\n01109108\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\c29bd719c4c304edc83e59751c936de4\\res\\values-v14\\values-v14.xml",
                     "from": {
                         "startLines": "2,7,8,9,15",
                         "startColumns": "4,4,4,4,4",
