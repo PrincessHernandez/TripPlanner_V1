@@ -173,6 +173,8 @@ activity#travelers.tripplanner.welcome.WelcomeActivity
 ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:17:9-26:20
 	android:label
 		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:19:13-45
+	android:configChanges
+		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:20:57-118
 	android:theme
 		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:20:13-56
 	android:name
@@ -188,19 +190,25 @@ ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidM
 	android:name
 		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:24:27-74
 activity#travelers.tripplanner.MainActivity
-ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:27:9-50
+ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:27:9-111
+	android:configChanges
+		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:27:48-109
 	android:name
 		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:27:19-47
 activity#travelers.tripplanner.register.signUp
-ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:28:9-53
+ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:28:9-114
+	android:configChanges
+		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:28:51-112
 	android:name
 		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:28:19-50
 activity#travelers.tripplanner.register.signIn
-ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:29:9-53
+ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:29:9-114
+	android:configChanges
+		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:29:51-112
 	android:name
 		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:29:19-50
 activity#travelers.tripplanner.addTrip.MainActivity
-ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:30:9-32:51
+ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:30:9-32:52
 	android:configChanges
 		ADDED from Z:\Android\GitHub\TripPlanner_V1\TripPlanner_V1\app\src\main\AndroidManifest.xml:31:13-59
 	android:name

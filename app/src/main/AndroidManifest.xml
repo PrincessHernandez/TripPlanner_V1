@@ -17,19 +17,19 @@
         <activity
             android:name=".welcome.WelcomeActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar" android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".register.signUp" />
-        <activity android:name=".register.signIn" />
+        <activity android:name=".MainActivity" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".register.signUp" android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".register.signIn" android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:configChanges="orientation|screenSize"
-            android:name=".addTrip.MainActivity"/>
+            android:name=".addTrip.MainActivity" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

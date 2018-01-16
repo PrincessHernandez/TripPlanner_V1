@@ -180,6 +180,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().replace(R.id.content_frame, new Settings()).commit();
 
         return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
