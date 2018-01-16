@@ -37,4 +37,53 @@
     <string name="longitude">Longitude: 0.00</string>
     <string name="name">prénom</string>
     <string name="type">type</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Bonjour fragment vierge</string>
+    <string name="want_to_exit">Voulez-vous quitter l\'application?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="added_to_bucketlist">ajouté à la liste de seau!</string>
+    <string name="bucketlist">liste de seau</string>
+    <string name="Name">Nom</string>
+    <string name="API_KEY"><![CDATA[&key=AIzaSyC1Svb1mu2sq-sdXzrRoI-VVsSR4BoWEkA]]></string>
+    <string name="geometry">géométrie</string>
+    <string name="temp_rating">0.0</string>
+    <string name="no_suggestions_found">Aucune suggestion trouvée. Réessayer!</string>
+    <string name="tryagain">Réessayer</string>
+    <string name="img_url">https://cdn.browshot.com/static/images/not-found.png</string>
+    <string name="map_google_api"><![CDATA[https://maps.googleapis.com/maps/api/place/photo?maxheight=400&photoreference=]]></string>
+    <string name="id">identifiant</string>
+    <string name="query">query=Tourist%20places%20in%20</string>
+    <string name="Number">nombre</string>
+    <string name="Place">Endroit: %s</string>
+    <string name="Number_of_trips">Nombre de voyages: %s</string>
+    <string name="visited"></string>
+    <string name="User_Location">Emplacement de l\'utilisateur</string>
+    <string name="Address">adresse</string>
+    <string name="Latitude">latitude</string>
+    <string name="Longitude">longitude</string>
+    <string name="Visited">A visité</string>
+    <string name="latlng">latlng=</string>
+    <string name="all_fields_must_be_filled">Tous les champs doivent être remplis</string>
+    <string name="Empty_field">Champ vide</string>
+    <string name="Registering_User">Enregistrement de l\'utilisateur...</string>
+    <string name="Please_wait">S\'il vous plaît, attendez!</string>
+    <string name="ok">D\'accord</string>
+    <string name="invalid_email">Email invalide!</string>
+    <string name="message1">Vous avez entré une adresse mail invalide</string>
+    <string name="message2">Le mot de passe doit contenir au moins 6 caractères</string>
+    <string name="invalid_Password">Mot de passe incorrect!</string>
+    <string name="message3">Le mot de passe ne correspond pas, réessayez!</string>
+    <string name="wrong_password">Mauvais mot de passe</string>
+    <string name="empty_field">Champ vide</string>
+    <string name="message4">Tous les champs doivent être remplis</string>
+    <string name="registering_user">Enregistrement de l\'utilisateur...</string>
+    <string name="please_wait">S\'il vous plaît, attendez!</string>
+    <string name="text1">Impossible de rendre l\'utilisateur!</string>
+    <string name="BucketList">Liste de godets</string>
+    <string name="Id">identifiant</string>
+    <string name="Lati">latitude</string>
+    <string name="Longi">longitude</string>
+    <string name="text2">GPS non autorisé</string>
 </resources>
