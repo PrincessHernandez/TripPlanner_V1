@@ -4,11 +4,13 @@
     <Preference
         android:id="@+id/pref1"
         android:key="lang_key"
+        android:summary="Change lang"
         android:title="blank" />
 
     <Preference
         android:id="@+id/pref2"
         android:key="location_key"
+        android:summary="gps"
         android:title="blank" />
 
     <Preference

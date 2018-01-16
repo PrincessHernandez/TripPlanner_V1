@@ -89,4 +89,6 @@
     <string name="lang_settings">Paramètres de langue</string>
     <string name="location_settings">Les paramètres de localisation</string>
     <string name="sign_out">Déconnexion</string>
+    <string name="change_lang">Changer la langue du système</string>
+    <string name="gps_on">Activer ou désactiver le système GPS</string>
 </resources>

@@ -36,7 +36,6 @@ public class Settings extends Fragment {
                 .replace(R.id.settings_container, new SettingsFragment())
                 .commit();
 
-
         return view;
     }
 
@@ -52,6 +51,7 @@ public class Settings extends Fragment {
 
             Preference langPref = findPreference("lang_key");
             langPref.setTitle(R.string.lang_settings);
+            langPref.setSummary(R.string.change_lang);
             langPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
@@ -63,6 +63,7 @@ public class Settings extends Fragment {
 
             Preference locPref = findPreference("location_key");
             locPref.setTitle(R.string.location_settings);
+            locPref.setSummary(R.string.gps_on);
             locPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                @Override
                 public boolean onPreferenceClick(Preference preference) {

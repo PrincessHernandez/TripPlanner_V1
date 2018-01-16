@@ -88,4 +88,7 @@
     <string name="lang_settings">Language Settings</string>
     <string name="location_settings">Location Settings</string>
     <string name="sign_out">Sign Out</string>
+    <string name="change_lang">Change system language</string>
+    <string name="gps_on">Turn the system GPS on or off</string>
+
 </resources>
