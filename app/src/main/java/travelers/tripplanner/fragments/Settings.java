@@ -27,16 +27,7 @@ public class Settings extends Fragment {
     public Settings() {
         // Required empty public constructor
     }
-/*
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getChildFragmentManager().beginTransaction()
-                .replace(R.id.settings_container, new SettingsFragment())
-                .commit();
-    }
 
-*/
     @Override
     public View onCreateView(LayoutInflater inflater,@Nullable ViewGroup container,@Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_settings, null, false);
@@ -45,14 +36,19 @@ public class Settings extends Fragment {
                 .replace(R.id.settings_container, new SettingsFragment())
                 .commit();
 
+
         return view;
     }
 
     public static class SettingsFragment extends PreferenceFragment {
-    @Override
+
+
+
+        @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.settings_fragment_pref);
+
 
             Preference langPref = findPreference("lang_key");
             langPref.setTitle(R.string.lang_settings);
@@ -81,9 +77,9 @@ public class Settings extends Fragment {
             signinPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                   // FirebaseAuth.getInstance().signOut();
-                   // Intent i = new Intent(Settings.this, signIn.class);
-                   // startActivity(i);
+                    FirebaseAuth.getInstance().signOut();
+                    Intent i = new Intent(SettingsFragment.this.getActivity(), signIn.class);
+                    startActivity(i);
                     return false;
                 }
             });
