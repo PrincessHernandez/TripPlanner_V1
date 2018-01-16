@@ -1,13 +1,12 @@
 package travelers.tripplanner.register;
 
+import junit.framework.TestCase;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by n01109108 on 1/15/2018.
- */
-public class signUpTest {
+public class signUpTest extends TestCase{
     @Test
     public void onCreate() throws Exception {
     }
@@ -15,10 +14,6 @@ public class signUpTest {
     @Test
     public void onStart() throws Exception {
 
-    }
-
-    @Test
-    public void onClick() throws Exception {
     }
 
 }

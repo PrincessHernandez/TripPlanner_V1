@@ -75,7 +75,7 @@ public class Maps extends Fragment {
                 LatLng user_location = new LatLng(MainActivity.latitude, MainActivity.longitude);
                 googleMap.addMarker(new MarkerOptions().position(user_location).
                         title(getString(R.string.User_Location)).
-                        snippet("This is where you are!")
+                        snippet(getString(R.string.this_is_where_you_are))
                         .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_user_loc)));
 
                 DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
@@ -100,18 +100,6 @@ public class Maps extends Fragment {
                                     if(placeAttributeSnap.getKey().equals(getString(R.string.Visited))) tempVisited = placeAttributeSnap.getValue(Boolean.class);
                                 }
                                 place_list.add(new place(tempName, tempAddress, tempLat, tempLng, tempVisited));
-//                                place_list.add(new LatLng(tempLat, tempLng));
-//                                if(tempVisited){
-//                                    googleMap.addMarker(new MarkerOptions().position(place_list.get(i)).
-//                                            title(tempName).
-//                                            snippet(tempAddress)
-//                                            .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_visited)));
-//                                } else {
-//                                    googleMap.addMarker(new MarkerOptions().position(place_list.get(i)).
-//                                            title(tempName).
-//                                            snippet(tempAddress)
-//                                            .icon(bitmapDescriptorFromVector(getActivity(), R.drawable.ic_visit)));
-//                                }
                             }
                         }
 

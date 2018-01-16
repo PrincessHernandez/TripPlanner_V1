@@ -34,7 +34,6 @@ import travelers.tripplanner.R;
 import travelers.tripplanner.fragments.MyLocation;
 
 public class  GPStracker {
-    private static final String TAG = "GPStracker_Message";
     private Context context;
     private TextView LatText,LngText,Address;
     private RequestQueue requestQueue;
@@ -48,7 +47,7 @@ public class  GPStracker {
 
     public Location getLocation(){
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
-            Toast.makeText(context,"Permission not granted",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.permission_not_granted,Toast.LENGTH_SHORT).show();
             return null;
         }
         LocationManager lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
@@ -122,8 +121,7 @@ public class  GPStracker {
             Location l = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             return l;
         }else{
-            Log.i( TAG , "Is GPS Enabled: False");
-            Toast.makeText(context,"Please enable GPS",Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.Please_enable_GPS,Toast.LENGTH_LONG).show();
         }
         return null;
     }
@@ -137,11 +135,13 @@ public class  GPStracker {
     }
 
     private void startReverseGeocoding() {
+        String lol = context.getResources().getString(R.string.url_1) +
+                context.getString(R.string.url_2);
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                JsonObjectRequest request = new JsonObjectRequest("https://maps.googleapis.com/maps/api/geocode/json?" +
-                        "latlng="+userLat+","+userLng,
+                JsonObjectRequest request = new JsonObjectRequest(context.getResources().getString(R.string.url_1) +
+                        context.getString(R.string.url_2)+userLat+","+userLng,
                         new Response.Listener<JSONObject>(){
 
                             @Override
@@ -149,7 +149,7 @@ public class  GPStracker {
 
                                 String location = null;
                                 try {
-                                    location = response.getJSONArray("results").getJSONObject(0).getString("formatted_address");
+                                    location = response.getJSONArray(context.getResources().getString(R.string.results)).getJSONObject(0).getString(context.getResources().getString(R.string.formatted_address));
                                     Address.setText(location);
                                 } catch (JSONException e) {
                                     e.printStackTrace();

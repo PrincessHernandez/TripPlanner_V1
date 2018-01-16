@@ -25,14 +25,14 @@
             android:id="@+id/place_name_checked_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NAME"
+            android:text="@string/name_item"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/place_address_checked_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Address"
+            android:text="@string/address_item"
             android:layout_below="@+id/place_name_checked_tv"/>
 
     </RelativeLayout>

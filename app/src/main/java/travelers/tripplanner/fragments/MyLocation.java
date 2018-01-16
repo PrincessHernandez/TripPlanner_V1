@@ -48,15 +48,15 @@ public class MyLocation extends Fragment {
         lat = MainActivity.latitude;
         lng = MainActivity.longitude;
 
-        LatText.setText("Latitude: "+round(lat,5));
-        LngText.setText("Longitude: "+round(lng,5));
+        LatText.setText(String.format("Latitude: %s", round(lat, 5)));
+        LngText.setText(String.format("Longitude: %s", round(lng, 5)));
 
         startReverseGeocoding();
 
         return view;
     }
 
-    private double round(double value, int places) {
+    protected double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
         BigDecimal bd = new BigDecimal(value);
         bd = bd.setScale(places, RoundingMode.HALF_UP);
@@ -71,7 +71,7 @@ public class MyLocation extends Fragment {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                JsonObjectRequest request = new JsonObjectRequest("https://maps.googleapis.com/maps/api/geocode/json?" +
+                JsonObjectRequest request = new JsonObjectRequest(getString(R.string.url_1) +
                         getString(R.string.latlng)+lat+","+lng,
                         new Response.Listener<JSONObject>(){
 
@@ -80,7 +80,7 @@ public class MyLocation extends Fragment {
 
                                 String location = null;
                                 try {
-                                    location = response.getJSONArray("results").getJSONObject(0).getString("formatted_address");
+                                    location = response.getJSONArray(getString(R.string.results)).getJSONObject(0).getString(getString(R.string.formatted_address));
                                     Address.setText(location);
                                 } catch (JSONException e) {
                                     e.printStackTrace();

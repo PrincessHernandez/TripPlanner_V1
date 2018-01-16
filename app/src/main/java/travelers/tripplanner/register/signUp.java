@@ -68,14 +68,14 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
         switch (id){
             case R.id.btn:
 
-                if(!checkEmpty()){
-                    if(valid()){
-                        if(!validEmail()){
+                if(!checkEmpty(name, email, password, confirmPassword)){
+                    if(valid(this.password)){
+                        if(!validEmail(this.email)){
                             AlertBox(getString(R.string.invalid_email), getString(R.string.message1), view);
                             break;
                         }
 
-                        if(!validPassword()){
+                        if(!validPassword(this.password.getText().toString())){
                             AlertBox(getString(R.string.invalid_Password), getString(R.string.message2), view);
                             break;
                         }
@@ -96,8 +96,8 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    private boolean validPassword() {
-        return 6<=password.getText().toString().length();
+    protected boolean validPassword(String tempPassword) {
+        return 6<=tempPassword.length();
     }
 
     private void SignUp() {
@@ -135,20 +135,20 @@ public class signUp extends AppCompatActivity implements View.OnClickListener {
         alert.show();
     }
 
-    private boolean checkEmpty() {
-        if(name.getText().toString().equals("")) return true;
-        if(email.getText().toString().equals("")) return true;
-        if(password.getText().toString().equals("")) return true;
-        if(confirmPassword.getText().toString().equals("")) return true;
+    protected boolean checkEmpty(EditText tempname, EditText tempemail, EditText temppassword, EditText tempconfirmPassword) {
+        if(tempname.getText().toString().equals("")) return true;
+        if(tempemail.getText().toString().equals("")) return true;
+        if(temppassword.getText().toString().equals("")) return true;
+        if(tempconfirmPassword.getText().toString().equals("")) return true;
         return false;
     }
 
-    private boolean valid() {
-        return password.getText().toString().equals(confirmPassword.getText().toString());
+    protected boolean valid(EditText temppassword) {
+        return temppassword.getText().toString().equals(confirmPassword.getText().toString());
     }
 
-    private boolean validEmail(){
-        CharSequence target = email.getText();
+    protected boolean validEmail(EditText tempemail){
+        CharSequence target = tempemail.getText();
         if (target == null) {
             return false;
         } else {

@@ -51,7 +51,7 @@ public class signIn extends AppCompatActivity implements View.OnClickListener{
 
         switch (id){
             case R.id.btn:
-                if(!checkEmpty()){
+                if(!checkEmpty(username, password)){
                     login();
                 } else{
                     AlertBox(getString(R.string.Empty_field), getString(R.string.all_fields_must_be_filled), view);
@@ -81,9 +81,9 @@ public class signIn extends AppCompatActivity implements View.OnClickListener{
                 });
     }
 
-    private boolean checkEmpty() {
-        if(username.getText().toString().equals("")) return true;
-        if(password.getText().toString().equals("")) return true;
+    protected boolean checkEmpty(EditText tempuname, EditText tempPass) {
+        if(tempuname.getText().toString().equals("")) return true;
+        if(tempPass.getText().toString().equals("")) return true;
         return false;
     }
 

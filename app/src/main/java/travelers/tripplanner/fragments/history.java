@@ -108,7 +108,7 @@ public class history extends Fragment {
             TextView place_address = mView.findViewById(R.id.place_address_checked_tv);
 
             place_name.setText(String.format(getString(R.string.Place), this.name.get(position)));
-            place_address.setText(String.format("Address: %s", this.address.get(position)));
+            place_address.setText(String.format(getString(R.string.address_s), this.address.get(position)));
 
             return mView;
         }

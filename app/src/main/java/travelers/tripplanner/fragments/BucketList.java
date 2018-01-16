@@ -107,28 +107,28 @@ public class BucketList extends Fragment {
                 }
 
                 private void startURL(String place) {
-                    JsonObjectRequest request = new JsonObjectRequest("https://maps.googleapis.com/maps/api/place/textsearch/json?" +
+                    JsonObjectRequest request = new JsonObjectRequest(getString(R.string.url1_textsearch) +
                             getString(R.string.query) + place + getString(R.string.API_KEY),
                             new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
                                     try {
-                                        int NOR = response.getJSONArray("results").length();
+                                        int NOR = response.getJSONArray(getActivity().getResources().getString(R.string.results)).length();
                                         for(int i = 0; i < NOR; i++){
 
-                                            if(!inBucketList(response.getJSONArray("results").getJSONObject(i).getString("place_id"))) continue;
+                                            if(!inBucketList(response.getJSONArray(getActivity().getResources().getString(R.string.results)).getJSONObject(i).getString(getString(R.string.place_id)))) continue;
 
-                                            name.add(response.getJSONArray("results").getJSONObject(i).getString("name"));
-                                            type.add(response.getJSONArray("results").getJSONObject(i).getJSONArray("types").get(0).toString());
-                                            address.add(response.getJSONArray("results").getJSONObject(i).getString("formatted_address"));
+                                            name.add(response.getJSONArray(getActivity().getResources().getString(R.string.results)).getJSONObject(i).getString(getString(R.string.name_json)));
+                                            type.add(response.getJSONArray(getActivity().getResources().getString(R.string.results)).getJSONObject(i).getJSONArray(getString(R.string.types_json)).get(0).toString());
+                                            address.add(response.getJSONArray(getActivity().getResources().getString(R.string.results)).getJSONObject(i).getString(getActivity().getResources().getString(R.string.formatted_address)));
                                             imageURl.add(getString(R.string.map_google_api) +
-                                                    response.getJSONArray("results").getJSONObject(i).getJSONArray("photos").getJSONObject(0).getString("photo_reference")
+                                                    response.getJSONArray(getActivity().getResources().getString(R.string.results)).getJSONObject(i).getJSONArray(getString(R.string.photos_json)).getJSONObject(0).getString(getString(R.string.photo_reference_json))
                                                     + getString(R.string.API_KEY));
-                                            String TempRating = response.getJSONArray("results").getJSONObject(i).getString("rating");
+                                            String TempRating = response.getJSONArray(getActivity().getResources().getString(R.string.results)).getJSONObject(i).getString(getString(R.string.ratings_json));
                                             rating.add(Double.parseDouble(TempRating));
-                                            latitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getString("lat")));
-                                            longitude.add(Double.parseDouble(response.getJSONArray("results").getJSONObject(0).getJSONObject("geometry").getJSONObject("location").getString("lng")));
-                                            place_id.add(response.getJSONArray("results").getJSONObject(i).getString("place_id"));
+                                            latitude.add(Double.parseDouble(response.getJSONArray(getActivity().getResources().getString(R.string.results)).getJSONObject(0).getJSONObject(getString(R.string.geometry_json)).getJSONObject(getString(R.string.location_json)).getString(getString(R.string.lat_json))));
+                                            longitude.add(Double.parseDouble(response.getJSONArray(getActivity().getResources().getString(R.string.results)).getJSONObject(0).getJSONObject(getString(R.string.geometry_json)).getJSONObject(getString(R.string.location_json)).getString(getString(R.string.lng_json))));
+                                            place_id.add(response.getJSONArray(getActivity().getResources().getString(R.string.results)).getJSONObject(i).getString(getString(R.string.place_id_json)));
                                         }
                                         if(NOR == 0){
                                             getActivity().runOnUiThread(new Runnable() {
@@ -137,7 +137,7 @@ public class BucketList extends Fragment {
                                                     a_builder = new AlertDialog.Builder(getActivity());
                                                     a_builder.setMessage(R.string.no_suggestions_found)
                                                             .setCancelable(false)
-                                                            .setPositiveButton("OK!", new DialogInterface.OnClickListener() {
+                                                            .setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
                                                                 @Override
                                                                 public void onClick(DialogInterface dialog, int which) {}
                                                             });

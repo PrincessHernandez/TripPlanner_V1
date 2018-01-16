@@ -17,7 +17,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:hint="Where do you want to visit?"
+            android:hint="@string/where_do_you_want_to_visit"
             android:textColorHint="@color/plainWhite"
             android:textColor="@color/plainWhite"
             android:layout_centerVertical="true"/>
@@ -29,7 +29,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="7dp"
-            android:text="Search"/>
+            android:text="@string/search"/>
 
     </RelativeLayout>
 
