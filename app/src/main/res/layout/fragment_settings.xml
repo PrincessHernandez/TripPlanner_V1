@@ -4,9 +4,12 @@
     android:layout_height="match_parent"
     tools:context="travelers.tripplanner.fragments.Settings">
 
-    <TextView
+
+    <Button
+        android:id="@+id/settingButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Settings" />
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
 
 </FrameLayout>

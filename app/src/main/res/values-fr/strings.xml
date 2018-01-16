@@ -86,4 +86,5 @@
     <string name="Lati">latitude</string>
     <string name="Longi">longitude</string>
     <string name="text2">GPS non autorisé</string>
+    <string name="change_language">Changer de langue</string>
 </resources>
