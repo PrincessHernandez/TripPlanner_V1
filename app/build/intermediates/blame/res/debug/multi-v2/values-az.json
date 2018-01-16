@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\n01109108\\Documents\\GitHub\\TripPlanner_V1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-az\\values-az.xml",
+            "outputFile": "C:\\Users\\Bojan\\Documents\\GitHub\\TripPlanner_V1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-az\\values-az.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\n01109108\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.2.aar\\b94133d195989e78f70017ea13733496\\res\\values-az\\values.xml",
+                    "source": "C:\\Users\\Bojan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.2.aar\\c42b7a1add4e8d77c0230499339bf850\\res\\values-az\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\n01109108\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.4.2.aar\\ffa1b315f593f552505b4795a5cbc1b1\\res\\values-az\\values.xml",
+                    "source": "C:\\Users\\Bojan\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-11.4.2.aar\\9e268eac79ba2c6c79f66573e851bc1a\\res\\values-az\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\n01109108\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\c29bd719c4c304edc83e59751c936de4\\res\\values-az\\values-az.xml",
+                    "source": "C:\\Users\\Bojan\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\8cbb292cab65f3fce90565c0decb46ae\\res\\values-az\\values-az.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

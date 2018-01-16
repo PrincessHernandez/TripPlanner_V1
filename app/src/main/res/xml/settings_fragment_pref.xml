@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        android:id="@+id/pref1"
+        android:key="lang_key"
+        android:title="blank" />
+
+    <Preference
+        android:id="@+id/pref2"
+        android:key="location_key"
+        android:title="blank" />
+
+    <Preference
+        android:id="@+id/pref3"
+        android:key="signin_key"
+        android:title="blank" />
+
+
+</PreferenceScreen>

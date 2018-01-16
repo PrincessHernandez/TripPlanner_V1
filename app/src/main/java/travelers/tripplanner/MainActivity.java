@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity
         //check the dashboard
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
         navigationView.setCheckedItem(R.id.nav_dashboard);
+
     }
 
     @Override
