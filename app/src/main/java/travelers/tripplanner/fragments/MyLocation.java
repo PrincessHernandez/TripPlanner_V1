@@ -78,7 +78,7 @@ public class MyLocation extends Fragment {
                             @Override
                             public void onResponse(JSONObject response) {
 
-                                String location = null;
+                                String location;
                                 try {
                                     location = response.getJSONArray(getString(R.string.results)).getJSONObject(0).getString(getString(R.string.formatted_address));
                                     Address.setText(location);

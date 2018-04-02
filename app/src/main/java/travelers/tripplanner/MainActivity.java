@@ -180,11 +180,16 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        
         FragmentManager fm = getFragmentManager();
-        fm.beginTransaction().replace(R.id.content_frame, new Settings()).commit();
-
-        return id == R.id.action_settings || super.onOptionsItemSelected(item);
+        if(id == R.id.action_settings){
+            fm.beginTransaction().replace(R.id.content_frame, new Settings()).commit();
+            return true;
+        }else if(id == R.id.startTripPi){
+            Intent i = new Intent(this, TripPiTest.class);
+            startActivity(i);
+            return true;
+        }
+        return false;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

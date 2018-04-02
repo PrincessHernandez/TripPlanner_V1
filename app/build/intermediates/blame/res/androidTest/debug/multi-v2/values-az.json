@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "Z:\\Android\\GitHub\\TripPlanner_V1\\TripPlanner_V1\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-az\\values-az.xml",
+            "outputFile": "Z:\\Android\\GitHub\\TripPlanner_V1\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-az\\values-az.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Rav\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.4.2.aar\\9ad8e332ff8a12f3007be005215bbf92\\res\\values-az\\values.xml",

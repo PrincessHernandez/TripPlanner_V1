@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE"/>
 
     <application
         android:allowBackup="true"
@@ -16,29 +17,36 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".welcome.WelcomeActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" android:configChanges="orientation|screenSize|keyboardHidden">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" android:configChanges="orientation|screenSize|keyboardHidden"/>
-        <activity android:name=".register.signUp" android:configChanges="orientation|screenSize|keyboardHidden"/>
-        <activity android:name=".register.signIn" android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
-            android:configChanges="orientation|screenSize"
-            android:name=".addTrip.MainActivity" />
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name=".register.signUp"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name=".register.signIn"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name=".addTrip.MainActivity"
+            android:configChanges="orientation|screenSize" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBrz7U1kyH-7GRpGeB1KJ16Y2T7xVBxZy4" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <activity android:name=".TripPiTest"></activity>
     </application>
 
 </manifest>
