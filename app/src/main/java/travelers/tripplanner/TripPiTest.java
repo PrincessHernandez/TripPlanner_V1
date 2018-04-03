@@ -46,7 +46,7 @@ public class TripPiTest extends AppCompatActivity {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                JsonObjectRequest request = new JsonObjectRequest("http://justlikerav.com/trippie/read_data.php",
+                JsonObjectRequest request = new JsonObjectRequest("http://justlikerav.com/trippie/read.php",
                         new Response.Listener<JSONObject>(){
 
                             @Override
