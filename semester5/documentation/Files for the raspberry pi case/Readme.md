@@ -10,3 +10,7 @@ License
 Raspberry Pi is a trademark of the Raspberry Pi Foundation
 
 Based on the [Adafruit Pi Box - Enclosure for Raspberry Pi Model A or B](https://www.adafruit.com/products/859)
+
+Prototype  Lab
+--------------
+Kelly eidted the file and made it worked according to our project. 
