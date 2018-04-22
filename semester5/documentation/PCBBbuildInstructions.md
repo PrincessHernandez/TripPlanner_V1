@@ -53,4 +53,10 @@ to connect, which would lead to some traces crossing over on one side. In these 
 by copper called "vias" which should be implemented in order to cross the traces to the other side of the printed<br>
 circuit board. An important note is that the 40-pin header must be added to the printed circuit board in a way that <br>
 the pins face upwards and the sockets face downwards. This is to ensure that the printed circuit board can "plug" <br>
-into the raspberry Pi smoothly.
+into the raspberry Pi smoothly.<br>
+<br>
+Connecting both of the printed circuit boards to the raspberry pi after they are completed is simple. First the <br>
+motor driver circuit board with the 40 pin socket header must be connected to the raspberry pi, with each pin lined <br>
+up with the pins on the raspberry pi. The second printed circuit board dedicated to sensing the temperature connects <br>
+right on top of the first printed circuit board so that it will cover half of the pins on the raspberry pi starting <br>
+from pin 1, or the power pin, on the raspberry pi.<br>
