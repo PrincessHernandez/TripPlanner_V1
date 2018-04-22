@@ -13,7 +13,8 @@ on the raspberry pi. Any pin will do as long as it does not interfere with anoth
 lead. The GPIO pin we used in this example is GPIO4. On this PCB, a 4700 ohm resistor must be connected between <br>
 the power trace and the GPIO trace, without touching the ground trace. The board itself only needs to be about <br>
 half the size of a full size pi board which connects to all 40 pins, as this one does not need to use most of <br>
-the pins. 
+the pins. This 20 pin header must also be connected so that the pins face upwards, and the sockets face downwards<br> 
+to ensure the printed circuit board can fit nicely into the motor driving board.<br>
 
 [Insert cool image of temp PCB here]
 
@@ -39,4 +40,17 @@ L293D IC pinout. <br>
 
 As shown, the pins on the chip are numbered as they are on common IC chips. To get the general idea, pin 16 on the <br>
 IC must be connected to the 5V power pin on the raspberry pi, and pin 16 must be connected to pin 8, as both sides <br>
-of the chip must be powered in order to work. Next, 
+of the chip must be powered in order to work. There are four ground pins, but only one needs to be connected to the <br>
+ground as all of the ground pins should be connected internally. Pins 2, 7, 10 and 15 are all input pins on the chip <br>
+and need to be connected to different GPIO pins on the raspberry pi. After those are connected, pins 3, 6, 11 and 14 <br>
+are to be connected to the four wires connected to the stepper motor. There is a certain order in which the pins <br>
+should be connected, and the shown diagram  of the stepper printed circuit board is the most optimal way to connect <br>
+it. Since this is a PCB, the motor will not be connected directly to it, for mainly for testing purposes and maintenance<br>
+if needed. As such, this is where the five-pin header will be implemented. The pins that are to be connected to the <br>
+motor from the L293D chip will instead be connected to this header so that the motor can simply be plugged into the <br>
+header. Connecting the traces on the printed circuit board will seem difficult as there are many different components<br>
+to connect, which would lead to some traces crossing over on one side. In these situations, there are holes surrounded<br>
+by copper called "vias" which should be implemented in order to cross the traces to the other side of the printed<br>
+circuit board. An important note is that the 40-pin header must be added to the printed circuit board in a way that <br>
+the pins face upwards and the sockets face downwards. This is to ensure that the printed circuit board can "plug" <br>
+into the raspberry Pi smoothly.
